@@ -1,3 +1,166 @@
-<p>
-  daily-count works!
-</p>
+<div class="card">
+    <div class="card-body">
+      <form >
+        <div class=" row">
+          <div class="col-sm-2 row">
+              <label class="col-sm-5 col-form-label" >Year</label>
+              <div class="col-sm-7">
+                  <select class="form-control" >
+                      <option>2014</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                    </select>
+                  </div>
+          </div>
+         
+          <div class="col-sm-3 row">
+              <label class="col-sm-6 col-form-label" for="hf-password">Month</label>
+              <div class="col-sm-6">
+                  <select class="form-control" >
+                      <option>Jan</option>
+                      <option>Feb</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                    </select>            
+                  </div>
+            </div>
+          
+          <div class="col-sm-3 row">
+              <label class="col-sm-5 col-form-label" for="hf-email">Category</label>
+              <div class="col-sm-7">
+                  <select class="form-control" >
+                      <option>Daily Count</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                    </select>            
+                  </div>
+            </div>
+          
+          <div class="col-sm-3 row">
+              <label class="col-sm-4 col-form-label" for="hf-email">Cases</label>
+              <div class="col-sm-8">
+                  <select class="form-control" >
+                      <option>Tally of cases attended</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                    </select> 
+                 </div>
+            </div>
+            <div class="col-sm-1 row">
+              <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-success">Get</button>
+          </div>
+            </div>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div class="card">
+    <div class="card-header"> Daily Count
+            <button mat-raised-button (click)="download()" class="btn btn-primary pull-right" >Export to Excel</button>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>DC_METAINSTANCE_ID</th>
+            <th>DEVICE_ID</th>
+            <th>SIMCARD_ID</th>
+            <th>PHONE_NUMBER</th>
+            <th>CASE_ID</th>
+            <th>USERNAME</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Yiorgos Avraamu</td>
+            <td>2012/01/01</td>
+            <td>Member</td>
+            <td>2012/01/01</td>
+            <td>Member</td>
+            <td>Quintin Ed</td>
+          </tr>
+          <tr>
+            <td>Avram Tarasios</td>
+            <td>2012/02/01</td>
+            <td>Staff</td>
+            <td>2012/01/01</td>
+            <td>Member</td>
+            <td>Quintin Ed</td>
+          </tr>
+          <tr>
+            <td>Quintin Ed</td>
+            <td>2012/02/01</td>
+            <td>Admin</td>
+            <td>2012/01/01</td>
+            <td>Member</td>
+            <td>Quintin Ed</td>
+          </tr>
+          <tr>
+            <td>Enéas Kwadwo</td>
+            <td>2012/03/01</td>
+            <td>Member</td>
+            <td>2012/01/01</td>
+            <td>Member</td>
+            <td>Quintin Ed</td>
+          </tr>
+          <tr>
+            <td>Agapetus Tadeáš</td>
+            <td>2012/01/21</td>
+            <td>Staff</td>
+            <td>2012/01/01</td>
+            <td>Member</td>
+            <td>Quintin Ed</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </div>
+  </div>
+  

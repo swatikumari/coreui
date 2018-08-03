@@ -81,6 +81,10 @@ export const routes: Routes = [
         loadChildren: './components/publicity/publicity.module#PublicityModule'
       },
       {
+        path: 'reports',
+        loadChildren: './components/reports/reports.module#ReportsModule'
+      },
+      {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },

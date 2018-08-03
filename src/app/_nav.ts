@@ -33,6 +33,12 @@ export const navItems = [
     icon: 'icon-speedometer',
 
   },
+  {
+    name: 'Reports',
+    url: '/reports',
+    icon: 'icon-shield',
+
+  },
   // {
   //   title: true,
   //   name: 'Theme'
