@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 
+
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
@@ -47,6 +48,8 @@ import { HwcModule } from './components/hwc/hwc.module';
 import { CompesationModule } from './components/compensation/compensation.module';
 import { DailyCountModule } from './components/daily-count/dailyCount.module';
 import { PublicityModule } from './components/publicity/publicity.module';
+import { ConnectorService } from './services/connector.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { PublicityModule } from './components/publicity/publicity.module';
     HwcModule,
     CompesationModule,
     DailyCountModule,
-    PublicityModule
+    PublicityModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -79,8 +83,10 @@ import { PublicityModule } from './components/publicity/publicity.module';
 ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }],
+    useClass: HashLocationStrategy,
+  },
+  ConnectorService
+],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
