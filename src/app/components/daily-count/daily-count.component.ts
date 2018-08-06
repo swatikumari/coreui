@@ -10,9 +10,18 @@ import { ConnectorService } from './../../services/connector.service';
 export class DailyCountComponent implements OnInit {
 
   record: any;
-  dataSource:any;
+  dataSource: any;
 
   constructor(private wildService: ConnectorService) { }
+
+  displayedCol = [
+    'DC_METAINSTANCE_ID',
+    'DC_DEVICE_ID',
+    'DC_SIMCARD_ID',
+    'DC_PHONE_NUMBER',
+    'DC_CASE_ID',
+    'DC_USER_NAME'
+  ];
 
   ngOnInit() {
     this.record = this.wildService.getData();
@@ -23,6 +32,7 @@ export class DailyCountComponent implements OnInit {
       this.dataSource = res.response;
     });
   }
+
   ConvertToCSV(objArray) {
     const array = typeof objArray !== 'object' ? JSON.parse(objArray) : objArray;
       let str = '';

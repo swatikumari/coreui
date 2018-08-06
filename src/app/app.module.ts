@@ -11,6 +11,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 
+// import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
+//   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
+//   MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
+//   MatButtonToggleModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 
 // Import containers
@@ -50,6 +55,7 @@ import { DailyCountModule } from './components/daily-count/dailyCount.module';
 import { PublicityModule } from './components/publicity/publicity.module';
 import { ConnectorService } from './services/connector.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     BrowserModule,
@@ -67,7 +73,12 @@ import { HttpClientModule } from '@angular/common/http';
     CompesationModule,
     DailyCountModule,
     PublicityModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+  //   MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
+  // MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
+  // MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
+  // MatButtonToggleModule
   ],
   declarations: [
     AppComponent,

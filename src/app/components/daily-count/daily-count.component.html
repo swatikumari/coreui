@@ -21,7 +21,7 @@
                     </select>
                   </div>
           </div>
-         
+
           <div class="col-sm-3 row">
               <label class="col-sm-6 col-form-label" for="hf-password">Month</label>
               <div class="col-sm-6">
@@ -38,10 +38,10 @@
                       <option>2023</option>
                       <option>2024</option>
                       <option>2025</option>
-                    </select>            
+                    </select>
                   </div>
             </div>
-          
+
           <div class="col-sm-3 row">
               <label class="col-sm-5 col-form-label" for="hf-email">Category</label>
               <div class="col-sm-7">
@@ -58,10 +58,10 @@
                       <option>2023</option>
                       <option>2024</option>
                       <option>2025</option>
-                    </select>            
+                    </select>
                   </div>
             </div>
-          
+
           <div class="col-sm-3 row">
               <label class="col-sm-4 col-form-label" for="hf-email">Cases</label>
               <div class="col-sm-8">
@@ -78,7 +78,7 @@
                       <option>2023</option>
                       <option>2024</option>
                       <option>2025</option>
-                    </select> 
+                    </select>
                  </div>
             </div>
             <div class="col-sm-1 row">
@@ -86,13 +86,13 @@
             <button type="button" class="btn btn-success">Get</button>
           </div>
             </div>
-          
+
         </div>
       </form>
     </div>
   </div>
-  
-  <div class="card">
+
+  <!-- <div class="card">
     <div class="card-header"> Daily Count
             <button mat-raised-button (click)="download()" class="btn btn-primary pull-right" >Export to Excel</button>
     </div>
@@ -161,6 +161,46 @@
         <li class="page-item"><a class="page-link" href="#">4</a></li>
         <li class="page-item"><a class="page-link" href="#">Next</a></li>
       </ul>
-    </div>
-  </div>
-  
+    </div> -->
+  <!-- </div> -->
+
+  <div class="mat-elevation-z8 hwc">
+    <div>
+        <button mat-raised-button (click)="download()" class="btn btn-primary " >Export to Excel</button>
+      </div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="DC_METAINSTANCE_ID">
+      <mat-header-cell *matHeaderCellDef>DC_METAINSTANCE_ID</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{data.DC_METAINSTANCE_ID}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="DC_DEVICE_ID">
+      <mat-header-cell *matHeaderCellDef>DEVICE_ID</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{data.DC_DEVICE_ID}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="DC_SIMCARD_ID">
+      <mat-header-cell *matHeaderCellDef>SIMCARD_ID</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{data.DC_SIMCARD_ID}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="DC_PHONE_NUMBER">
+      <mat-header-cell *matHeaderCellDef>PHONE_NUMBER</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{data.DC_PHONE_NUMBER}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="DC_CASE_ID">
+      <mat-header-cell *matHeaderCellDef>CASE_ID</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{data.DC_CASE_ID}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="DC_USER_NAME">
+      <mat-header-cell *matHeaderCellDef>USERNAME</mat-header-cell>
+      <mat-cell *matCellDef="let data">{{data.DC_USER_NAME}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>
+  </mat-table>
+  <!-- <mat-paginator
+  [length]="totalPost"
+  [pageSize]="postPerPage"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onChangedPage($event)">
+</mat-paginator> -->
+</div>
+
