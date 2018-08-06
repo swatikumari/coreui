@@ -86,7 +86,7 @@ export const routes: Routes = [
       },
       {
         path: 'dashboard',
-        loadChildren: './views/dashboard/dashboard.module#DashboardModule'
+        loadChildren: './components/home/home.module#HomeModule'
       },
       {
         path: 'icons',

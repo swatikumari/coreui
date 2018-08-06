@@ -10,6 +10,10 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
+import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
+  MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
+  MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
+  MatButtonToggleModule } from '@angular/material';
 
 // import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
 //   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
@@ -75,6 +79,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PublicityModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
+  MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
+  MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
+  MatButtonToggleModule
   //   MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   // MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   // MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,

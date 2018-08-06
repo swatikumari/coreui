@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
 
 import { ConnectorService } from './../../services/connector.service';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
+
 @Component({
   selector: 'app-daily-count',
   templateUrl: './daily-count.component.html',
@@ -11,7 +13,10 @@ export class DailyCountComponent implements OnInit {
 
   record: any;
   dataSource: any;
-
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  totalPost = 10;
+  postPerPage = 10;
+  pageSizeOptions = [5,10,20,50,100];
   constructor(private wildService: ConnectorService) { }
 
   displayedCol = [
@@ -29,7 +34,8 @@ export class DailyCountComponent implements OnInit {
       if (!res) {
         return;
       }
-      this.dataSource = res.response;
+      this.dataSource = new MatTableDataSource(res.response);
+      this.dataSource.paginator = this.paginator;
     });
   }
 

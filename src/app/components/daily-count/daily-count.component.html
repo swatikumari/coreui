@@ -163,44 +163,49 @@
       </ul>
     </div> -->
   <!-- </div> -->
-
-  <div class="mat-elevation-z8 hwc">
-    <div>
-        <button mat-raised-button (click)="download()" class="btn btn-primary " >Export to Excel</button>
+  <div class="card">
+    <div class="card-header">
+      Daily Count
+        <button mat-raised-button (click)="download()" class="btn btn-primary pull-right" >Export to Excel</button>
+    </div>
+    <div class="card-body">
+        <div class="mat-elevation-z8 hwc">
+          <mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="DC_METAINSTANCE_ID">
+              <mat-header-cell *matHeaderCellDef>DC_METAINSTANCE_ID</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.DC_METAINSTANCE_ID}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="DC_DEVICE_ID">
+              <mat-header-cell *matHeaderCellDef>DEVICE_ID</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.DC_DEVICE_ID}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="DC_SIMCARD_ID">
+              <mat-header-cell *matHeaderCellDef>SIMCARD_ID</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.DC_SIMCARD_ID}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="DC_PHONE_NUMBER">
+              <mat-header-cell *matHeaderCellDef>PHONE_NUMBER</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.DC_PHONE_NUMBER}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="DC_CASE_ID">
+              <mat-header-cell *matHeaderCellDef>CASE_ID</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.DC_CASE_ID}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="DC_USER_NAME">
+              <mat-header-cell *matHeaderCellDef>USERNAME</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.DC_USER_NAME}}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>
+          </mat-table>
+          <mat-paginator
+          [length]="totalPost"
+          [pageSize]="postPerPage"
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="onChangedPage($event)">
+        </mat-paginator>
+        </div>
       </div>
-  <mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="DC_METAINSTANCE_ID">
-      <mat-header-cell *matHeaderCellDef>DC_METAINSTANCE_ID</mat-header-cell>
-      <mat-cell *matCellDef="let data">{{data.DC_METAINSTANCE_ID}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="DC_DEVICE_ID">
-      <mat-header-cell *matHeaderCellDef>DEVICE_ID</mat-header-cell>
-      <mat-cell *matCellDef="let data">{{data.DC_DEVICE_ID}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="DC_SIMCARD_ID">
-      <mat-header-cell *matHeaderCellDef>SIMCARD_ID</mat-header-cell>
-      <mat-cell *matCellDef="let data">{{data.DC_SIMCARD_ID}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="DC_PHONE_NUMBER">
-      <mat-header-cell *matHeaderCellDef>PHONE_NUMBER</mat-header-cell>
-      <mat-cell *matCellDef="let data">{{data.DC_PHONE_NUMBER}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="DC_CASE_ID">
-      <mat-header-cell *matHeaderCellDef>CASE_ID</mat-header-cell>
-      <mat-cell *matCellDef="let data">{{data.DC_CASE_ID}}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="DC_USER_NAME">
-      <mat-header-cell *matHeaderCellDef>USERNAME</mat-header-cell>
-      <mat-cell *matCellDef="let data">{{data.DC_USER_NAME}}</mat-cell>
-    </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>
-  </mat-table>
-  <!-- <mat-paginator
-  [length]="totalPost"
-  [pageSize]="postPerPage"
-  [pageSizeOptions]="pageSizeOptions"
-  (page)="onChangedPage($event)">
-</mat-paginator> -->
-</div>
+      </div>
+ 
 
