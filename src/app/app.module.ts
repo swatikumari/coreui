@@ -58,6 +58,7 @@ import { CompesationModule } from './components/compensation/compensation.module
 import { DailyCountModule } from './components/daily-count/dailyCount.module';
 import { PublicityModule } from './components/publicity/publicity.module';
 import { ConnectorService } from './services/connector.service';
+import { ExcelService } from './services/excel.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
@@ -104,7 +105,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
   },
-  ConnectorService
+  ConnectorService,
+  ExcelService
 ],
   bootstrap: [ AppComponent ]
 })

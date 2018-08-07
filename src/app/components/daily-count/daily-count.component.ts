@@ -1,6 +1,8 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
 
 import { ConnectorService } from './../../services/connector.service';
+import { ExcelService } from './../../services/excel.service';
+
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 
 @Component({
@@ -17,7 +19,7 @@ export class DailyCountComponent implements OnInit {
   totalPost = 10;
   postPerPage = 10;
   pageSizeOptions = [5,10,20,50,100];
-  constructor(private wildService: ConnectorService) { }
+  constructor(private wildService: ConnectorService, private excelService: ExcelService) { }
 
   displayedCol = [
     'DC_METAINSTANCE_ID',
@@ -68,7 +70,7 @@ export class DailyCountComponent implements OnInit {
  }
 
  download() {
-  const csvData = this.ConvertToCSV(this.dataSource);
+  const csvData = this.ConvertToCSV(this.dataSource.data);
                          const a = document.createElement('a');
                           a.setAttribute('style', 'display:none;');
                           document.body.appendChild(a);
@@ -78,6 +80,11 @@ export class DailyCountComponent implements OnInit {
                           a.download = 'Daily_count.csv'; /* your file name*/
                           a.click();
                           return 'success';
+  }
+
+  xlsxReport(){
+    this.excelService.exportAsExcelFile(this.dataSource.data,  "DailyCount");
+    return 'success';
   }
 
 }
