@@ -1,3 +1,140 @@
-<p>
-  publicity works!
-</p>
+<!-- <div class="card">
+    <div class="card-body">
+      <form >
+        <div class=" row">
+          <div class="col-sm-2 row">
+              <label class="col-sm-5 col-form-label" >Year</label>
+              <div class="col-sm-7">
+                  <select class="form-control" >
+                      <option>2014</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                    </select>
+                  </div>
+          </div>
+
+          <div class="col-sm-3 row">
+              <label class="col-sm-6 col-form-label" for="hf-password">Month</label>
+              <div class="col-sm-6">
+                  <select class="form-control" >
+                      <option>Jan</option>
+                      <option>Feb</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                    </select>
+                  </div>
+            </div>
+
+          <div class="col-sm-3 row">
+              <label class="col-sm-5 col-form-label" for="hf-email">Category</label>
+              <div class="col-sm-7">
+                  <select class="form-control" >
+                      <option>Daily Count</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                    </select>
+                  </div>
+            </div>
+
+          <div class="col-sm-3 row">
+              <label class="col-sm-4 col-form-label" for="hf-email">Cases</label>
+              <div class="col-sm-8">
+                  <select class="form-control" >
+                      <option>Tally of cases attended</option>
+                      <option>2015</option>
+                      <option>2016</option>
+                      <option>2017</option>
+                      <option>2018</option>
+                      <option>2019</option>
+                      <option>2020</option>
+                      <option>2021</option>
+                      <option>2022</option>
+                      <option>2023</option>
+                      <option>2024</option>
+                      <option>2025</option>
+                    </select>
+                 </div>
+            </div>
+            <div class="col-sm-1 row">
+              <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+            <button type="button" class="btn btn-success">Get</button>
+          </div>
+            </div>
+
+        </div>
+      </form>
+    </div>
+  </div> -->
+
+  <div class="card">
+    <div class="card-header">
+      Daily Count
+        <button mat-raised-button (click)="xlsxReport()" class="btn btn-primary pull-right" >Export to Excel</button>
+    </div>
+    <div class="card-body">
+        <div class="mat-elevation-z8 hwc">
+          <mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="PB_DEVICE_ID">
+              <mat-header-cell *matHeaderCellDef>PB_DEVICE_ID</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.PB_DEVICE_ID}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="PB_V_DATE">
+              <mat-header-cell *matHeaderCellDef>PB_V_DATE</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.PB_V_DATE}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="PB_PARK">
+              <mat-header-cell *matHeaderCellDef>PB_PARK</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.PB_PARK}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="PB_TALUK">
+              <mat-header-cell *matHeaderCellDef>PB_TALUK</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.PB_TALUK}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="PB_VILLAGE_1">
+              <mat-header-cell *matHeaderCellDef>VILLAGE</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.PB_VILLAGE_1}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="PB_USER_NAME">
+              <mat-header-cell *matHeaderCellDef>USERNAME</mat-header-cell>
+              <mat-cell *matCellDef="let data">{{data.PB_USER_NAME}}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>
+          </mat-table>
+          <mat-paginator
+          [length]="totalPost"
+          [pageSize]="postPerPage"
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="onChangedPage($event)">
+        </mat-paginator>
+        </div>
+      </div>
+      </div>
+
+

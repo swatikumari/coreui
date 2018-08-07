@@ -15,14 +15,16 @@ import { Observable } from 'rxjs';
 
 export class ConnectorService {
 
-  private uri = 'https://nodecleaner.azurewebsites.net/getDailyCountUsers';
+  private uri = 'https://nodecleaner.azurewebsites.net/';
 
   constructor(private http: HttpClient) { }
 
-getData(): Observable<Data[]> {
+getDailyCountUsers(): Observable<Data[]> {
   // console.log('Hello World');
-  return this.http.get<Data[]>(this.uri);
+  return this.http.get<Data[]>(this.uri + 'getallDC');
 }
 
-
+getPublicity(): Observable<any> {
+  return this.http.get<any>(this.uri + 'getpublicity');
+}
 }

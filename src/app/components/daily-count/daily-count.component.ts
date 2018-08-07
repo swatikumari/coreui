@@ -18,7 +18,7 @@ export class DailyCountComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   totalPost = 10;
   postPerPage = 10;
-  pageSizeOptions = [5,10,20,50,100];
+  pageSizeOptions = [5, 10, 20, 50, 100];
   constructor(private wildService: ConnectorService, private excelService: ExcelService) { }
 
   displayedCol = [
@@ -31,7 +31,7 @@ export class DailyCountComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.record = this.wildService.getData();
+    this.record = this.wildService.getDailyCountUsers();
     this.record.subscribe(res => {
       if (!res) {
         return;
@@ -82,8 +82,8 @@ export class DailyCountComponent implements OnInit {
                           return 'success';
   }
 
-  xlsxReport(){
-    this.excelService.exportAsExcelFile(this.dataSource.data,  "DailyCount");
+  xlsxReport() {
+    this.excelService.exportAsExcelFile(this.dataSource.data,  'DailyCount');
     return 'success';
   }
 
