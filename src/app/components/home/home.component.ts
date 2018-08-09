@@ -26,7 +26,7 @@ public barChartData: any[] = [
 ];
 
  // Pie
- public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+ public pieChartLabels: string[] = ['HWC1', 'HWC2', 'HWC3'];
  public pieChartData: number[] = [300, 500, 100];
  public pieChartType = 'pie';
 }

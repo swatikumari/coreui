@@ -6,7 +6,7 @@ import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
   MatButtonToggleModule } from '@angular/material';
-
+  import { MyDatePickerModule } from 'mydatepicker';
 @NgModule({
   imports: [
 
@@ -14,7 +14,8 @@ ReportsRoutingModule,
 MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
 MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
 MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
-MatButtonToggleModule
+MatButtonToggleModule,
+MyDatePickerModule
   ],
   declarations: [ ReportsComponent ]
 })

@@ -60,9 +60,12 @@ import { DailyCountModule } from './components/daily-count/dailyCount.module';
 import { PublicityModule } from './components/publicity/publicity.module';
 import { ConnectorService } from './services/connector.service';
 import { ExcelService } from './services/excel.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserService } from './services/user.service';
+import { AddHttpHeaderInterceptor } from './services/setAuthHeader.service';
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -108,6 +111,12 @@ import { UserService } from './services/user.service';
     provide: LocationStrategy,
     useClass: HashLocationStrategy,
   },
+  // {
+  //   provide: HTTP_INTERCEPTORS,
+  //   useClass: AddHttpHeaderInterceptor,
+  //   multi: true,
+  // },
+
   ConnectorService,
   ExcelService,
   UserService
