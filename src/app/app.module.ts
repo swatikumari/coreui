@@ -27,7 +27,7 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
 const APP_CONTAINERS = [
@@ -47,6 +47,7 @@ import { AppRoutingModule } from './app.routing';
 
 // Import 3rd party components
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -63,12 +64,15 @@ import { ExcelService } from './services/excel.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserService } from './services/user.service';
+
 import { AddHttpHeaderInterceptor } from './services/setAuthHeader.service';
 
 
+import { UsersModule } from './components/users/users.module';
 @NgModule({
   imports: [
-    BrowserModule,
+
+  BrowserModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
@@ -83,6 +87,7 @@ import { AddHttpHeaderInterceptor } from './services/setAuthHeader.service';
     CompesationModule,
     DailyCountModule,
     PublicityModule,
+    UsersModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
@@ -119,7 +124,8 @@ import { AddHttpHeaderInterceptor } from './services/setAuthHeader.service';
 
   ConnectorService,
   ExcelService,
-  UserService
+  UserService,
+
 ],
   bootstrap: [ AppComponent ]
 })
