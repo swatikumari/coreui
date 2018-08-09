@@ -29,3 +29,45 @@ export class UsersComponent implements OnInit {
    }
 
 }
+
+// import {Component, EventEmitter, Inject, OnInit} from '@angular/core';
+// import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+// import {DataService} from './../../services/data.service';
+
+// @Component({
+//   selector: 'app-post-dialog',
+//   templateUrl: './users.component.html',
+//  // styleUrls: ['./post-dialog.component.css']
+//  providers: [DataService]
+// })
+// export class UsersComponent  {
+//   blogPost = {
+//     Username: '',
+//     Firstname: '',
+//     Lastname: '',
+//     position: 0,
+//     Category: ''
+//   };
+//   public event: EventEmitter<any> = new EventEmitter();
+
+//   constructor(
+//     public dialogRef: MatDialogRef<UsersComponent>,
+//     @Inject(MAT_DIALOG_DATA) public data: any,
+//     public dataService: DataService
+//   ) {
+//   }
+
+//   onNoClick(): void {
+//     this.dialogRef.close();
+//   }
+
+//   onSubmit(): void {
+//     this.blogPost.position = this.dataService.dataLength();
+//     this.event.emit({data: this.blogPost});
+//     this.dialogRef.close();
+//   }
+
+//   // tslint:disable-next-line:member-ordering
+//   categories = this.dataService.getCategories();
+// }
+
