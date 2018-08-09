@@ -46,6 +46,7 @@ import {
 import { AppRoutingModule } from './app.routing';
 
 // Import 3rd party components
+import { ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -61,6 +62,7 @@ import { ConnectorService } from './services/connector.service';
 import { ExcelService } from './services/excel.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UserService } from './services/user.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -83,11 +85,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
   //   MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   // MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   // MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
   // MatButtonToggleModule
+  ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -106,7 +109,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     useClass: HashLocationStrategy,
   },
   ConnectorService,
-  ExcelService
+  ExcelService,
+  UserService
 ],
   bootstrap: [ AppComponent ]
 })
