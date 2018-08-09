@@ -4,6 +4,7 @@ import { ConnectorService } from './../../services/connector.service';
 import { ExcelService } from './../../services/excel.service';
 
 import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-daily-count',
@@ -19,7 +20,7 @@ export class DailyCountComponent implements OnInit {
   totalPost = 10;
   postPerPage = 10;
   pageSizeOptions = [5, 10, 20, 50, 100];
-  constructor(private wildService: ConnectorService, private excelService: ExcelService) { }
+  constructor(private wildService: ConnectorService, private excelService: ExcelService, private spinnerService: Ng4LoadingSpinnerService) { }
 
   displayedCol = [
     'DC_METAINSTANCE_ID',
@@ -31,13 +32,16 @@ export class DailyCountComponent implements OnInit {
   ];
 
   ngOnInit() {
+    this.spinnerService.show();
     this.record = this.wildService.getDailyCountUsers();
     this.record.subscribe(res => {
       if (!res) {
+        this.spinnerService.hide();
         return;
       }
       this.dataSource = new MatTableDataSource(res.response);
       this.dataSource.paginator = this.paginator;
+      this.spinnerService.hide();
     });
   }
 

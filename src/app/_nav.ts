@@ -39,6 +39,12 @@ export const navItems = [
     icon: 'icon-shield',
 
   },
+  {
+    name: 'Users',
+    url: '/users',
+    icon: 'icon-pencil',
+
+  },
   // {
   //   title: true,
   //   name: 'Theme'

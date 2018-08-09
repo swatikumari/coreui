@@ -7,6 +7,7 @@ import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
   MatButtonToggleModule } from '@angular/material';
+  import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
     MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  Ng4LoadingSpinnerModule.forRoot()
   ],
   declarations: [ DailyCountComponent ]
 })

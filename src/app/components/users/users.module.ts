@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
-import { ReportsComponent } from './reports.component';
-import { ReportsRoutingModule } from './reports-routing.module';
+import { UsersComponent } from './users.component';
+import { UsersRoutingModule } from './users-routing.module';
 import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
@@ -10,12 +10,12 @@ import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
 @NgModule({
   imports: [
 
-ReportsRoutingModule,
+UsersRoutingModule,
 MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
 MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
 MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
 MatButtonToggleModule
   ],
-  declarations: [ ReportsComponent ]
+  declarations: [ UsersComponent ]
 })
-export class ReportsModule { }
+export class UsersModule { }

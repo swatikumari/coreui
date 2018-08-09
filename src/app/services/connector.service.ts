@@ -24,6 +24,10 @@ getDailyCountUsers(): Observable<Data[]> {
   return this.http.get<Data[]>(this.uri + 'getallDC');
 }
 
+getReport(): Observable<Data[]> {
+
+  return this.http.get<Data[]>(this.uri);
+}
 getPublicity(): Observable<any> {
   return this.http.get<any>(this.uri + 'getpublicity');
 }
