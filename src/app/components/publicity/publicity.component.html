@@ -94,12 +94,12 @@
 
   <div class="card">
     <div class="card-header">
-      Daily Count
+      Publicity
         <button mat-raised-button (click)="xlsxReport()" class="btn btn-primary pull-right" >Export to Excel</button>
     </div>
     <div class="card-body">
         <div class="mat-elevation-z8 hwc">
-          <mat-table [dataSource]="dataSource">
+          <mat-table [dataSource]="dataSource" #table>
             <ng-container matColumnDef="PB_DEVICE_ID">
               <mat-header-cell *matHeaderCellDef>PB_DEVICE_ID</mat-header-cell>
               <mat-cell *matCellDef="let data">{{data.PB_DEVICE_ID}}</mat-cell>

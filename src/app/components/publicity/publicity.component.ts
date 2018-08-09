@@ -49,7 +49,7 @@ export class PublicityComponent implements OnInit {
   }
 
   xlsxReport() {
-    this.excelService.exportAsExcelFile(this.dataSource.data,  'DailyCount');
+    this.excelService.exportAsExcelFile(this.dataSource.data,  'Publicity');
     return 'success';
   }
 
