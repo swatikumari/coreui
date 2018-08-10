@@ -6,13 +6,9 @@ import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
   MatButtonToggleModule } from '@angular/material';
-
   import { MyDatePickerModule } from 'mydatepicker';
-
-
   import{FormsModule} from '@angular/forms'
   import {CommonModule} from '@angular/common';
-
 @NgModule({
   imports: [
 
@@ -22,8 +18,8 @@ MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
 MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
 MatButtonToggleModule,
 MyDatePickerModule,
-FormsModule,
 CommonModule,
+FormsModule
   ],
   declarations: [ ReportsComponent ]
 })
