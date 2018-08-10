@@ -22,18 +22,25 @@ export class CompensationComponent implements OnInit {
   pageSizeOptions = [5, 10, 20, 50, 100];
   constructor(private wildService: ConnectorService, private excelService: ExcelService, private spinnerService: Ng4LoadingSpinnerService) { }
 
-  displayedCol = [
-    'DC_METAINSTANCE_ID',
-    'DC_DEVICE_ID',
-    'DC_SIMCARD_ID',
-    'DC_PHONE_NUMBER',
-    'DC_CASE_ID',
-    'DC_USER_NAME'
-  ];
-
+  // displayedCol = [
+  //   'DC_METAINSTANCE_ID',
+  //   'DC_DEVICE_ID',
+  //   'DC_SIMCARD_ID',
+  //   'DC_PHONE_NUMBER',
+  //   'DC_CASE_ID',
+  //   'DC_USER_NAME'
+  // ];
+  
+  displayedCol = ["DC_METAINSTANCE_ID",
+         "DC_DEVICE_ID",
+         "DC_USER_NAME",
+         "DC_NH_CASES",
+         "DC_BP_CASES",
+         "DC_TOTAL_CASES"
+        ]
   ngOnInit() {
     this.spinnerService.show();
-    this.record = this.wildService.getDailyCountUsers();
+    this.record = this.wildService.getCompensation_OM();
     this.record.subscribe(res => {
       if (!res) {
         this.spinnerService.hide();
