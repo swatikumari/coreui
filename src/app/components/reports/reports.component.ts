@@ -3,6 +3,8 @@ import { Component, OnInit , ViewChild} from '@angular/core';
 import { ConnectorService } from './../../services/connector.service';
 import { ExcelService } from './../../services/excel.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
+import {IMyDpOptions} from 'mydatepicker';
+ //import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-reports',
@@ -16,13 +18,24 @@ export class ReportsComponent implements OnInit {
   hwcFlag = false;
   publicityFlag = false;
 
+  // public myForm: FormGroup;
+
   record: any;
   dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   totalPost = 10;
   postPerPage = 10;
   pageSizeOptions = [5, 10, 20, 50, 100];
-  constructor(private wildService: ConnectorService, private excelService: ExcelService) { }
+  constructor(private wildService: ConnectorService,
+    private excelService: ExcelService,
+   ) { }
+
+  public model: any;
+
+  public myDatePickerOptions: IMyDpOptions = {
+    // other options...
+    dateFormat: 'dd.mm.yyyy',
+};
 
   displayedCol = [
     'DC_METAINSTANCE_ID',
@@ -34,6 +47,7 @@ export class ReportsComponent implements OnInit {
   ];
 
   ngOnInit() {
+
     this.record = this.wildService.getReport();
     this.record.subscribe(res => {
       if (!res) {
@@ -43,7 +57,8 @@ export class ReportsComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     });
   }
-  
+
+
   xlsxReport() {
     if(this.dataSource.data){
       this.excelService.exportReport(this.dataSource.data,  'Reports');
@@ -51,7 +66,7 @@ export class ReportsComponent implements OnInit {
     }else{
       alert("No data to export");
     }
- 
+
   }
 
 }
