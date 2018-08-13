@@ -26,7 +26,7 @@ export class DailyCountComponent implements OnInit {
     'DC_METAINSTANCE_ID',
     'DC_DEVICE_ID',
     'DC_SIMCARD_ID',
-    'DC_PHONE_NUMBER',
+    'DC_FA_ID',
     'DC_CASE_ID',
     'DC_USER_NAME'
   ];
