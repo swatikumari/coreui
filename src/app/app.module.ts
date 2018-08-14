@@ -69,6 +69,7 @@ import { AddHttpHeaderInterceptor } from './services/setAuthHeader.service';
 
 
 import { UsersModule } from './components/users/users.module';
+import { AddUserService } from './services/addUser.service';
 @NgModule({
   imports: [
 
@@ -125,7 +126,7 @@ import { UsersModule } from './components/users/users.module';
   ConnectorService,
   ExcelService,
   UserService,
-
+  AddUserService
 ],
   bootstrap: [ AppComponent ]
 })

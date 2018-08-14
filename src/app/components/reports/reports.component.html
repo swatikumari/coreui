@@ -52,45 +52,45 @@
   </div>
 </div> -->
 <div class="card">
-    <div class="card-body">
-      <form #form="ngForm" (submit)="xlsxReport(form)" >
-          <div class="row">
-              <div class="form-group col-sm-2">
-                <label for="ccmonth">From</label>
-                <my-date-picker name="fromDate" [options]="myDatePickerOptions"
-                [(ngModel)]="fromDate" required></my-date-picker>
-              </div>
-              <div class="form-group col-sm-2">
-                <label for="ccyear">To</label>
-                <my-date-picker name="toDate" [options]="myDatePickerOptions"
-                [(ngModel)]="toDate" required></my-date-picker>
-              </div>
-              <div class="col-sm-3">
-                <div class="form-group">
-                  <label for="cvv">Category</label>
-                  <select class="form-control" required>
-                      <option value="dailyCount">Daily Count</option>
-                    </select>              </div>
-              </div>
-              <div class="col-sm-3">
-                  <div class="form-group">
-                    <label for="cvv">Cases</label>
-                    <select class="form-control" [(ngModel)]="case" name="case" required>
-                        <option *ngFor="let c of caseList" [ngValue]="c"> {{c}} </option>
-                        <!-- <option value="case1">Case1</option>
+  <div class="card-body">
+    <form #form="ngForm" (submit)="xlsxReport(form)">
+      <div class="row">
+        <div class="form-group col-sm-2">
+          <label for="ccmonth">From</label>
+          <my-date-picker name="fromDate" [options]="myDatePickerOptions" [(ngModel)]="fromDate" required></my-date-picker>
+        </div>
+        <div class="form-group col-sm-2">
+          <label for="ccyear">To</label>
+          <my-date-picker name="toDate" [options]="myDatePickerOptions" [(ngModel)]="toDate" required></my-date-picker>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="cvv">Category</label>
+            <select class="form-control" required>
+              <option value="dailyCount">Daily Count</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <label for="cvv">Cases</label>
+            <select class="form-control" [(ngModel)]="case" name="case" required>
+              <option *ngFor="let c of caseList" [ngValue]="c"> {{c}} </option>
+              <!-- <option value="case1">Case1</option>
                         <option value="case2">Case2</option> -->
-                      </select>               </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="form-group">
-                        <label > </label>
-                        <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-                            <button mat-raised-button type="submit" class="btn btn-primary pull-right" >Download Report</button>
-                          </div>
-                                        </div>
-                  </div>
+            </select>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label> </label>
+            <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
+              <button mat-raised-button type="submit" class="btn btn-primary pull-right">Download Report</button>
             </div>
-        <!-- <div class=" row">
+          </div>
+        </div>
+      </div>
+      <!-- <div class=" row">
           <div class="col-sm-3 row">
               <label class="col-sm-5 col-form-label" >Year</label>
               <div class="col-sm-7">
@@ -153,9 +153,9 @@
             </div>
 
         </div> -->
-      </form>
-    </div>
+    </form>
   </div>
+</div>
 <!-- <div class="card" >
   <div class="card-header"> Wildlife Reports
           <button mat-raised-button (click)="xlsxReport()" class="btn btn-primary pull-right" >Export to Excel</button>

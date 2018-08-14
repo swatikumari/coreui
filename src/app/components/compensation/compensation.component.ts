@@ -3,8 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
-import { ConnectorService } from './../../services/connector.service';
-import { ExcelService } from './../../services/excel.service';
+import { ConnectorService } from '../../services/connector.service';
+import { ExcelService } from '../../services/excel.service';
 
 @Component({
   selector: 'app-compensation',
@@ -30,7 +30,7 @@ export class CompensationComponent implements OnInit {
   //   'DC_CASE_ID',
   //   'DC_USER_NAME'
   // ];
-  
+
   displayedCol = ["DC_METAINSTANCE_ID",
          "DC_DEVICE_ID",
          "DC_USER_NAME",

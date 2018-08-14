@@ -4,8 +4,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
-import { ConnectorService } from './../../services/connector.service';
-import { ExcelService } from './../../services/excel.service';
+import { ConnectorService } from '../../services/connector.service';
+import { ExcelService } from '../../services/excel.service';
 
 @Component({
   selector: 'app-hwc',
@@ -24,17 +24,19 @@ export class HwcComponent implements OnInit {
   constructor(private wildService: ConnectorService, private excelService: ExcelService, private spinnerService: Ng4LoadingSpinnerService) { }
 
   displayedCol = [
-    'DC_METAINSTANCE_ID',
-    'DC_DEVICE_ID',
-    'DC_SIMCARD_ID',
-    'DC_PHONE_NUMBER',
-    'DC_CASE_ID',
-    'DC_USER_NAME'
+    'HWC_METAINSTANCE_ID',
+    'HWC_METASUBMISSION_DATE',
+    'HWC_FULL_NAME',
+    'HWC_NEWPHONE_NUMBER',
+    'HWC_PARK_NAME',
+    'HWC_TALUK_NAME',
+    'HWC_VILLAGE_NAME',
+    'HWC_ANIMAL'
   ];
 
   ngOnInit() {
     this.spinnerService.show();
-    this.record = this.wildService.getDailyCountUsers();
+    this.record = this.wildService.getHWC();
     this.record.subscribe(res => {
       if (!res) {
         this.spinnerService.hide();
@@ -47,7 +49,7 @@ export class HwcComponent implements OnInit {
   }
 
   xlsxReport() {
-    this.excelService.exportAsExcelFile(this.dataSource.data,  'Compensation');
+    this.excelService.exportAsExcelFile(this.dataSource.data,  'HWC');
     return 'success';
   }
 

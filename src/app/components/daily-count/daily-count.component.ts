@@ -1,7 +1,7 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
 
-import { ConnectorService } from './../../services/connector.service';
-import { ExcelService } from './../../services/excel.service';
+import { ConnectorService } from '../../services/connector.service';
+import { ExcelService } from '../../services/excel.service';
 
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';

@@ -1,144 +1,42 @@
 <ng4-loading-spinner> </ng4-loading-spinner>
-<!-- <div class="card">
-    <div class="card-body">
-      <form >
-        <div class=" row">
-          <div class="col-sm-2 row">
-              <label class="col-sm-5 col-form-label" >Year</label>
-              <div class="col-sm-7">
-                  <select class="form-control" >
-                      <option>2014</option>
-                      <option>2015</option>
-                      <option>2016</option>
-                      <option>2017</option>
-                      <option>2018</option>
-                      <option>2019</option>
-                      <option>2020</option>
-                      <option>2021</option>
-                      <option>2022</option>
-                      <option>2023</option>
-                      <option>2024</option>
-                      <option>2025</option>
-                    </select>
-                  </div>
-          </div>
+<div class="card">
+  <div class="card-header">
+    Compensation
+    <button mat-raised-button (click)="xlsxReport()" class="btn btn-primary pull-right">Export to Excel</button>
+  </div>
 
-          <div class="col-sm-3 row">
-              <label class="col-sm-6 col-form-label" for="hf-password">Month</label>
-              <div class="col-sm-6">
-                  <select class="form-control" >
-                      <option>Jan</option>
-                      <option>Feb</option>
-                      <option>2016</option>
-                      <option>2017</option>
-                      <option>2018</option>
-                      <option>2019</option>
-                      <option>2020</option>
-                      <option>2021</option>
-                      <option>2022</option>
-                      <option>2023</option>
-                      <option>2024</option>
-                      <option>2025</option>
-                    </select>
-                  </div>
-            </div>
+  <div class="mat-elevation-z8 hwc">
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="DC_METAINSTANCE_ID">
+        <mat-header-cell *matHeaderCellDef>DC_METAINSTANCE_ID</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.DC_METAINSTANCE_ID}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="DC_DEVICE_ID">
+        <mat-header-cell *matHeaderCellDef>DC_DEVICE_ID</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.DC_DEVICE_ID}}</mat-cell>
+      </ng-container>
 
-          <div class="col-sm-3 row">
-              <label class="col-sm-5 col-form-label" for="hf-email">Category</label>
-              <div class="col-sm-7">
-                  <select class="form-control" >
-                      <option>Daily Count</option>
-                      <option>2015</option>
-                      <option>2016</option>
-                      <option>2017</option>
-                      <option>2018</option>
-                      <option>2019</option>
-                      <option>2020</option>
-                      <option>2021</option>
-                      <option>2022</option>
-                      <option>2023</option>
-                      <option>2024</option>
-                      <option>2025</option>
-                    </select>
-                  </div>
-            </div>
+      <ng-container matColumnDef="DC_USER_NAME">
+        <mat-header-cell *matHeaderCellDef>DC_USER_NAME</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.DC_USER_NAME}}</mat-cell>
+      </ng-container>
 
-          <div class="col-sm-3 row">
-              <label class="col-sm-4 col-form-label" for="hf-email">Cases</label>
-              <div class="col-sm-8">
-                  <select class="form-control" >
-                      <option>Tally of cases attended</option>
-                      <option>2015</option>
-                      <option>2016</option>
-                      <option>2017</option>
-                      <option>2018</option>
-                      <option>2019</option>
-                      <option>2020</option>
-                      <option>2021</option>
-                      <option>2022</option>
-                      <option>2023</option>
-                      <option>2024</option>
-                      <option>2025</option>
-                    </select>
-                 </div>
-            </div>
-            <div class="col-sm-1 row">
-              <div class="col-6 col-sm-4 col-md-2 col-xl mb-3 mb-xl-0">
-            <button type="button" class="btn btn-success">Get</button>
-          </div>
-            </div>
-
-        </div>
-      </form>
-    </div>
-  </div> -->
-
-
-  <div class="card">
-    <div class="card-header">
-      Compensation
-        <button mat-raised-button (click)="xlsxReport()" class="btn btn-primary pull-right" >Export to Excel</button>
-    </div>
-    <div class="card-body">
-        <div class="mat-elevation-z8 hwc">
-          <mat-table [dataSource]="dataSource">
-            <ng-container matColumnDef="DC_METAINSTANCE_ID">
-              <mat-header-cell *matHeaderCellDef>DC_METAINSTANCE_ID</mat-header-cell>
-              <mat-cell *matCellDef="let data">{{data.DC_METAINSTANCE_ID}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="DC_DEVICE_ID">
-              <mat-header-cell *matHeaderCellDef>DC_DEVICE_ID</mat-header-cell>
-              <mat-cell *matCellDef="let data">{{data.DC_DEVICE_ID}}</mat-cell>
-            </ng-container>
-            
-            <ng-container matColumnDef="DC_USER_NAME">
-              <mat-header-cell *matHeaderCellDef>DC_USER_NAME</mat-header-cell>
-              <mat-cell *matCellDef="let data">{{data.DC_USER_NAME}}</mat-cell>
-            </ng-container>
-           
-            <ng-container matColumnDef="DC_NH_CASES">
-                <mat-header-cell *matHeaderCellDef>DC_NH_CASES</mat-header-cell>
-                <mat-cell *matCellDef="let data">{{data.DC_NH_CASES}}</mat-cell>
-              </ng-container>
-              <ng-container matColumnDef="DC_BP_CASES">
-                  <mat-header-cell *matHeaderCellDef>DC_BP_CASES</mat-header-cell>
-                  <mat-cell *matCellDef="let data">{{data.DC_BP_CASES}}</mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="DC_TOTAL_CASES">
-                    <mat-header-cell *matHeaderCellDef>DC_TOTAL_CASES</mat-header-cell>
-                    <mat-cell *matCellDef="let data">{{data.DC_TOTAL_CASES}}</mat-cell>
-                  </ng-container>
-            <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>
-          </mat-table>
-          <mat-paginator
-          [length]="totalPost"
-          [pageSize]="postPerPage"
-          [pageSizeOptions]="pageSizeOptions"
-          >
-        </mat-paginator>
-        </div>
-      </div>
-      </div>
-
-
+      <ng-container matColumnDef="DC_NH_CASES">
+        <mat-header-cell *matHeaderCellDef>DC_NH_CASES</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.DC_NH_CASES}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="DC_BP_CASES">
+        <mat-header-cell *matHeaderCellDef>DC_BP_CASES</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.DC_BP_CASES}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="DC_TOTAL_CASES">
+        <mat-header-cell *matHeaderCellDef>DC_TOTAL_CASES</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.DC_TOTAL_CASES}}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>
+    </mat-table>
+    <mat-paginator [length]="totalPost" [pageSize]="postPerPage" [pageSizeOptions]="pageSizeOptions">
+    </mat-paginator>
+  </div>
+</div>

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UsersComponent } from './users.component';
+import { UserDialogComponent } from './users.component';
+
 import { UsersRoutingModule } from './users-routing.module';
 import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
@@ -21,11 +23,12 @@ MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModu
 MatButtonToggleModule,
 MatGridListModule, MatMenuModule, MatTabsModule,
   MatButtonToggleModule,
-  MatDialogModule,
   MatSelectModule,
+  MatDialogModule,
+  MatIconModule,
 FormsModule,
 CommonModule
   ],
-  declarations: [ UsersComponent ]
+  declarations: [ UsersComponent, UserDialogComponent ]
 })
 export class UsersModule { }
