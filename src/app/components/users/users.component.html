@@ -4,24 +4,34 @@
     <button mat-raised-button (click)="openDialog()" class="btn btn-primary pull-right">Add User</button>
   </div>
 
+
+
   <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource">
-      <ng-container matColumnDef="Username">
+      <ng-container matColumnDef="firstname">
+          <mat-header-cell *matHeaderCellDef> FirstName </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.First_name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="lastname">
+          <mat-header-cell *matHeaderCellDef> LastName </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.lastname}} </mat-cell>
+        </ng-container>
+      <ng-container matColumnDef="username">
         <mat-header-cell *matHeaderCellDef> UserName </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Username}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
       </ng-container>
-      <ng-container matColumnDef="Firstname">
-        <mat-header-cell *matHeaderCellDef> FirstName </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Firstname}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="Lastname">
-        <mat-header-cell *matHeaderCellDef> LastName </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Lastname}} </mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="Category">
+      <ng-container matColumnDef="phone">
+          <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef> E-Mail </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+          </ng-container>
+      <!-- <ng-container matColumnDef="category">
         <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.Category}} </mat-cell>
-      </ng-container>
+        <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+      </ng-container> -->
       <ng-container matColumnDef="delete">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let element">

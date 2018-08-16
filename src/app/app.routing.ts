@@ -85,6 +85,10 @@ export const routes: Routes = [
         loadChildren: './components/reports/reports.module#ReportsModule'
       },
       {
+        path: 'caseUsers',
+        loadChildren: './components/case-users/caseUsers.module#CaseUsersModule'
+      },
+      {
         path: 'users',
         loadChildren: './components/users/users.module#UsersModule'
       },

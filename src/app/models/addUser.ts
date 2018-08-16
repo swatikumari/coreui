@@ -1,8 +1,9 @@
 export interface AddUser {
-  Position: number;
-  Username: string;
-  Firstname: string;
-  Lastname: string;
-  Gmail: string;
-  Category: string;
+  firstname: string,
+  lastname: string,
+  username: string,
+  phone: number,
+  email: string,
+  password: string,
+  category: string
 }
