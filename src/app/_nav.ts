@@ -40,6 +40,12 @@ export const navItems = [
 
   },
   {
+    name: 'Case Users',
+    url: '/caseUsers',
+    icon: 'icon-speedometer',
+
+  },
+  {
     name: 'Users',
     url: '/users',
     icon: 'icon-pencil',

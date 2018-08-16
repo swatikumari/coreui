@@ -49,4 +49,7 @@ getDcByCase2(): Observable<any> {
 getHWC(): Observable<any> {
   return this.http.get<any>(this.uri + 'gethwc');
 }
+getcase_users(): Observable<any> {
+  return this.http.get<any>(this.uri + 'getcase_users');
+}
 }
