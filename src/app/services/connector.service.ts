@@ -19,31 +19,34 @@ export class ConnectorService {
 
   constructor(private http: HttpClient) { }
 
-getDailyCountUsers(): Observable<Data[]> {
+getDailyCountUsers(): Observable<any> {
   // console.log('Hello World');
-  return this.http.get<Data[]>(this.uri + 'getallDC');
+  return this.http.get<any>(this.uri + 'getallDC');
 }
-getCompensation_OM(): Observable<Data[]> {
+getCompensation_OM(): Observable<any> {
   // console.log('Hello World');
-  return this.http.get<Data[]>(this.uri + 'getCompensation_OM');
+  return this.http.get<any>(this.uri + 'getCompensation_OM');
 }
-getReport(): Observable<Data[]> {
+getReport(): Observable<any> {
 
-  return this.http.get<Data[]>(this.uri);
+  return this.http.get<any>(this.uri);
 }
 getPublicity(): Observable<any> {
   return this.http.get<any>(this.uri + 'getpublicity');
 }
-getDcByRange(fromDate, toDate): Observable<Data[]> {
+getDcByRange(fromDate, toDate): Observable<any> {
 
-  return this.http.post<Data[]>(this.uri+ "getDCreportbyrange", {fromdate:fromDate, todate:toDate});
+  return this.http.post<any>(this.uri+ "getDCreportbyrange", {fromdate:fromDate, todate:toDate});
 }
-getDcByCase1(): Observable<Data[]> {
+getDcByCase1(): Observable<any> {
 
-  return this.http.get<Data[]>(this.uri+ 'getDCreportbyMonth');
+  return this.http.get<any>(this.uri+ 'getDCreportbyMonth');
 }
-getDcByCase2(): Observable<Data[]> {
+getDcByCase2(): Observable<any> {
 
-  return this.http.get<Data[]>(this.uri+ 'getDCreportbyday');
+  return this.http.get<any>(this.uri+ 'getDCreportbyday');
+}
+getHWC(): Observable<any> {
+  return this.http.get<any>(this.uri + 'gethwc');
 }
 }

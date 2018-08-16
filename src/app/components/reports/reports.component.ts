@@ -1,7 +1,7 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
 
-import { ConnectorService } from './../../services/connector.service';
-import { ExcelService } from './../../services/excel.service';
+import { ConnectorService } from '../../services/connector.service';
+import { ExcelService } from '../../services/excel.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import {IMyDpOptions} from 'mydatepicker';
 
@@ -28,7 +28,7 @@ export class ReportsComponent implements OnInit {
   totalPost = 10;
   postPerPage = 10;
   pageSizeOptions = [5, 10, 20, 50, 100];
-  
+
   constructor(private wildService: ConnectorService, private excelService: ExcelService) { }
 
   displayedCol = [
@@ -41,20 +41,18 @@ export class ReportsComponent implements OnInit {
   ];
 
   ngOnInit() {
-  
+
   }
-  
+
   xlsxReport(data) {
 if(this.fromDate != null && this.toDate !=null){
-  
+
   // var fday = this.fromDate.getDate();
   // var fmonthIndex = this.fromDate.getMonth();
   // var fyear = this.fromDate.getFullYear();
-
   // var tday = this.toDate.getDate();
   // var tmonthIndex = this.toDate.getMonth();
   // var tyear = this.toDate.getFullYear();
-
   // this.record = this.wildService.getDcByRange(fyear+"-"+fmonthIndex+"-"+fday, tyear+"-"+tmonthIndex+"-"+tday);
   this.record = this.wildService.getDcByRange(this.fromDate.formatted, this.toDate.formatted);
 
@@ -108,7 +106,7 @@ else{
 
 
 
- 
+
   }
 
 }

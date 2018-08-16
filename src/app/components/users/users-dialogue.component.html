@@ -1,0 +1,30 @@
+<div class="example-container">
+<h1 mat-dialog-title style="text-align: center">Add User</h1>
+<div mat-dialog-content >
+  <form class="example-form" (ngSubmit)="onSubmit()">
+    <mat-form-field style="width:300px !important">
+      <input matInput placeholder="Username" type="text" required [(ngModel)]="blogPost.Username" name="name">
+    </mat-form-field>
+
+    <mat-form-field style="width:300px !important">
+      <input matInput placeholder="Firstname" type="text" required [(ngModel)]="blogPost.Firstname" name="body">
+    </mat-form-field>
+
+    <mat-form-field style="width:300px !important">
+      <input matInput placeholder="Lastname" type="text" required [(ngModel)]="blogPost.Lastname" name="body">
+    </mat-form-field>
+
+    <mat-form-field style="width:300px !important">
+      <mat-select matInput placeholder="User Category" required [(ngModel)]="blogPost.Category" name="category">
+        <mat-option *ngFor="let cat of categories" [value]="cat.value">
+          {{ cat.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button mat-raised-button type="submit" color="primary">Save</button>
+      <button mat-raised-button  (click)="onNoClick()" color="accent">Cancel</button>
+    </div>
+  </form>
+</div>
+</div>

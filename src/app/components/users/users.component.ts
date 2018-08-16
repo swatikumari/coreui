@@ -1,73 +1,90 @@
-import { Component, OnInit , ViewChild} from '@angular/core';
+import {Component, Inject, EventEmitter } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatIconRegistry} from '@angular/material';
+import { AddUserService } from '../../services/addUser.service';
+import { AddUser } from '../../models/addUser';
+import { Observable } from 'rxjs/Observable';
+import {DataSource} from '@angular/cdk/table';
 
-import { ConnectorService } from './../../services/connector.service';
-import { ExcelService } from './../../services/excel.service';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
 
+export interface DialogData {
+  animal: string;
+  name: string;
+}
+
+/**
+ * @title Dialog Overview
+ */
 @Component({
-  selector: 'app-users',
-  templateUrl: './users.component.html',
-  styleUrls: ['./users.component.scss'],
-  providers: [ConnectorService]
+  // selector: 'dialog-overview-example',
+  templateUrl: 'users.component.html',
+  styleUrls: ['users.component.scss'],
 })
-export class UsersComponent implements OnInit {
+export class UsersComponent {
 
-  dcFlag = true;
-  hwcFlag = false;
-  publicityFlag = false;
+  constructor(private addUser: AddUserService, public dialog: MatDialog) {
+  }
 
-  record: any;
-  dataSource: any;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  totalPost = 10;
-  postPerPage = 10;
-  pageSizeOptions = [5, 10, 20, 50, 100];
-  constructor(private wildService: ConnectorService, private excelService: ExcelService) { }
+  displayedColumns = ['Username', 'Firstname', 'Lastname', 'Category', 'delete'];
+  dataSource = new PostDataSource(this.addUser);
 
 
-  ngOnInit() {
-   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(UserDialogComponent, {
+      width: '400px',
+      data: 'Add Post'
+    });
+    dialogRef.componentInstance.event.subscribe((result) => {
+      this.addUser.addPost(result.data);
+      this.dataSource = new PostDataSource(this.addUser);
+    });
+  }
+}
+export class PostDataSource extends DataSource<any> {
+    constructor(private addUser: AddUserService) {
+      super();
+    }
+
+    connect(): Observable<AddUser[]> {
+      return this.addUser.getData();
+    }
+
+  disconnect() {
+  }
 
 }
 
-// import {Component, EventEmitter, Inject, OnInit} from '@angular/core';
-// import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-// import {DataService} from './../../services/data.service';
+@Component({
+//  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'users-dialogue.component.html',
+})
+export class UserDialogComponent {
+  blogPost = {
+    Username: '',
+    Firstname: '',
+    Lastname: '',
+    position: 0,
+    Category: ''
+  };
+  public event: EventEmitter<any> = new EventEmitter();
 
-// @Component({
-//   selector: 'app-post-dialog',
-//   templateUrl: './users.component.html',
-//  // styleUrls: ['./post-dialog.component.css']
-//  providers: [DataService]
-// })
-// export class UsersComponent  {
-//   blogPost = {
-//     Username: '',
-//     Firstname: '',
-//     Lastname: '',
-//     position: 0,
-//     Category: ''
-//   };
-//   public event: EventEmitter<any> = new EventEmitter();
+  constructor(
+    public dialogRef: MatDialogRef<UsersComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public dataService: AddUserService
+  ) {
+  }
 
-//   constructor(
-//     public dialogRef: MatDialogRef<UsersComponent>,
-//     @Inject(MAT_DIALOG_DATA) public data: any,
-//     public dataService: DataService
-//   ) {
-//   }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
-//   onNoClick(): void {
-//     this.dialogRef.close();
-//   }
+  onSubmit(): void {
+    this.blogPost.position = this.dataService.dataLength();
+    this.event.emit({data: this.blogPost});
+    this.dialogRef.close();
+  }
 
-//   onSubmit(): void {
-//     this.blogPost.position = this.dataService.dataLength();
-//     this.event.emit({data: this.blogPost});
-//     this.dialogRef.close();
-//   }
-
-//   // tslint:disable-next-line:member-ordering
-//   categories = this.dataService.getCategories();
-// }
-
+  // tslint:disable-next-line:member-ordering
+  categories = this.dataService.getCategories();
+}

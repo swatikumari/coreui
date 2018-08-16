@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UsersComponent } from './users.component';
+import { UsersComponent, UserDialogComponent } from './users.component';
 
 const routes: Routes = [
   {
@@ -10,6 +10,10 @@ const routes: Routes = [
     data: {
       title: 'Users'
     }
+  },
+  {
+    path: 'dial',
+    component: UserDialogComponent
   }
 ];
 

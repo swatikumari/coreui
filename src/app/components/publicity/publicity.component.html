@@ -92,49 +92,42 @@
     </div>
   </div> -->
 
-  <div class="card">
-    <div class="card-header">
-      Publicity
-        <button mat-raised-button (click)="xlsxReport()" class="btn btn-primary pull-right" >Export to Excel</button>
-    </div>
-    <div class="card-body">
-        <div class="mat-elevation-z8 hwc">
-          <mat-table [dataSource]="dataSource" #table>
-            <ng-container matColumnDef="PB_DEVICE_ID">
-              <mat-header-cell *matHeaderCellDef>PB_DEVICE_ID</mat-header-cell>
-              <mat-cell *matCellDef="let data">{{data.PB_DEVICE_ID}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="PB_V_DATE">
-              <mat-header-cell *matHeaderCellDef>PB_V_DATE</mat-header-cell>
-              <mat-cell *matCellDef="let data">{{data.PB_V_DATE}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="PB_PARK">
-              <mat-header-cell *matHeaderCellDef>PB_PARK</mat-header-cell>
-              <mat-cell *matCellDef="let data">{{data.PB_PARK}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="PB_TALUK">
-              <mat-header-cell *matHeaderCellDef>PB_TALUK</mat-header-cell>
-              <mat-cell *matCellDef="let data">{{data.PB_TALUK}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="PB_VILLAGE_1">
-              <mat-header-cell *matHeaderCellDef>VILLAGE</mat-header-cell>
-              <mat-cell *matCellDef="let data">{{data.PB_VILLAGE_1}}</mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="PB_USER_NAME">
-              <mat-header-cell *matHeaderCellDef>USERNAME</mat-header-cell>
-              <mat-cell *matCellDef="let data">{{data.PB_USER_NAME}}</mat-cell>
-            </ng-container>
-            <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>
-          </mat-table>
-          <mat-paginator
-          [length]="totalPost"
-          [pageSize]="postPerPage"
-          [pageSizeOptions]="pageSizeOptions"
-          >
-        </mat-paginator>
-        </div>
-      </div>
-      </div>
+<div class="card">
+  <div class="card-header">
+    Publicity
+    <button mat-raised-button (click)="xlsxReport()" class="btn btn-primary pull-right">Export to Excel</button>
+  </div>
 
-
+  <div class="mat-elevation-z8 hwc">
+    <mat-table [dataSource]="dataSource" #table>
+      <ng-container matColumnDef="PB_DEVICE_ID">
+        <mat-header-cell *matHeaderCellDef>PB_DEVICE_ID</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.PB_DEVICE_ID}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="PB_V_DATE">
+        <mat-header-cell *matHeaderCellDef>PB_V_DATE</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.PB_V_DATE}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="PB_PARK">
+        <mat-header-cell *matHeaderCellDef>PB_PARK</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.PB_PARK}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="PB_TALUK">
+        <mat-header-cell *matHeaderCellDef>PB_TALUK</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.PB_TALUK}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="PB_VILLAGE_1">
+        <mat-header-cell *matHeaderCellDef>VILLAGE</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.PB_VILLAGE_1}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="PB_USER_NAME">
+        <mat-header-cell *matHeaderCellDef>USERNAME</mat-header-cell>
+        <mat-cell *matCellDef="let data">{{data.PB_USER_NAME}}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>
+    </mat-table>
+    <mat-paginator [length]="totalPost" [pageSize]="postPerPage" [pageSizeOptions]="pageSizeOptions">
+    </mat-paginator>
+  </div>
+</div>

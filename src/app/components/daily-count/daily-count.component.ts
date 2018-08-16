@@ -1,7 +1,7 @@
 import { Component, OnInit , ViewChild} from '@angular/core';
 
-import { ConnectorService } from './../../services/connector.service';
-import { ExcelService } from './../../services/excel.service';
+import { ConnectorService } from '../../services/connector.service';
+import { ExcelService } from '../../services/excel.service';
 
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
@@ -26,7 +26,7 @@ export class DailyCountComponent implements OnInit {
     'DC_METAINSTANCE_ID',
     'DC_DEVICE_ID',
     'DC_SIMCARD_ID',
-    'DC_PHONE_NUMBER',
+    'DC_FA_ID',
     'DC_CASE_ID',
     'DC_USER_NAME'
   ];
