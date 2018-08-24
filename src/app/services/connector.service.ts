@@ -52,4 +52,24 @@ getHWC(): Observable<any> {
 getcase_users(): Observable<any> {
   return this.http.get<any>(this.uri + 'getcase_users');
 }
+getHWCreport_bycases(): Observable<any> {
+  return this.http.get<any>(this.uri + 'getHWCreport_bycases');
 }
+getHWCreport_byday(): Observable<any> {
+  return this.http.get<any>(this.uri + 'getHWCreport_byday');
+}
+getHWCreport_bycases_range(fromDate, toDate): Observable<any> {
+  return this.http.post<any>(this.uri + 'getHWCreport_bycases_range', {fromdate:fromDate, todate:toDate});
+}
+getHWCreport_byday_range(fromDate, toDate): Observable<any> {
+  return this.http.post<any>(this.uri + 'getHWCreport_byday_range', {fromdate:fromDate, todate:toDate});
+}
+getHWCreport_byspacial_range(fromDate, toDate): Observable<any> {
+  return this.http.post<any>(this.uri + 'getHWCreport_byspacial_range', {fromdate:fromDate, todate:toDate});
+}
+getHWCreport_byCat(): Observable<any> {
+  return this.http.get<any>(this.uri + 'getHWCreport_byCat');
+}
+}
+
+

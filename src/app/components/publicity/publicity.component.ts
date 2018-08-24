@@ -23,18 +23,12 @@ export class PublicityComponent implements OnInit {
   constructor(private wildService: ConnectorService, private excelService: ExcelService) { }
 
   displayedCol = [
-    // 'DC_METAINSTANCE_ID',
-    // 'DC_DEVICE_ID',
-    // 'DC_SIMCARD_ID',
-    // 'DC_PHONE_NUMBER',
-    // 'DC_CASE_ID',
-    // 'DC_USER_NAME'
     'PB_DEVICE_ID',
     'PB_USER_NAME',
     'PB_V_DATE',
     'PB_PARK',
     'PB_TALUK',
-    'PB_VILLAGE_1'
+    'PB_VILLAGE_1',
   ];
 
   ngOnInit() {

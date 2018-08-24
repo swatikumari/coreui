@@ -1,19 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UsersComponent, UserDialogComponent } from './users.component';
+import { UsersComponent, UserCreateComponent, UserUpdateComponent } from './users.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'user',
     component: UsersComponent,
     data: {
       title: 'Users'
     }
   },
   {
-    path: 'dial',
-    component: UserDialogComponent
+    path: 'create',
+    component: UserCreateComponent
+  },
+  {
+    path: 'update',
+    component: UserUpdateComponent
+  },
+  {
+    path: '',
+    redirectTo: 'user',
+    pathMatch: 'full'
   }
 ];
 

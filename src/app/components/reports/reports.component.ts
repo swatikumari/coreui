@@ -85,6 +85,7 @@ if(this.fromDate != null && this.toDate !=null){
     }
   });
 }
+
 else{
 
   this.record = this.wildService.getDcByCase2();
