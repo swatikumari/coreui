@@ -67,7 +67,6 @@ getHWCreport_byday_range(fromDate, toDate): Observable<any> {
 getHWCreport_byspacial_range(fromDate, toDate): Observable<any> {
   return this.http.post<any>(this.uri + 'getHWCreport_byspacial_range', {fromdate:fromDate, todate:toDate});
 }
-getHWCreport_byCat(): Observable<any> {
-  return this.http.get<any>(this.uri + 'getHWCreport_byCat');
 }
-}
+
+

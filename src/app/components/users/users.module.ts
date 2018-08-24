@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { UsersComponent } from './users.component';
-import { UserDialogComponent } from './users.component';
+import { UsersComponent, UserUpdateComponent } from './users.component';
+import { UserCreateComponent } from './users.component';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
@@ -11,7 +11,7 @@ import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   MatDialogModule,
 MatButtonToggleModule,
   MatSelectModule, } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -27,8 +27,9 @@ MatGridListModule, MatMenuModule, MatTabsModule,
   MatDialogModule,
   MatIconModule,
 FormsModule,
+ReactiveFormsModule,
 CommonModule
   ],
-  declarations: [ UsersComponent, UserDialogComponent ]
+  declarations: [ UsersComponent, UserCreateComponent, UserUpdateComponent ]
 })
 export class UsersModule { }
