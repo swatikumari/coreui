@@ -14,6 +14,8 @@ import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
   MatButtonToggleModule } from '@angular/material';
+  import { StorageServiceModule  } from 'angular-webstorage-service';
+
 
 // import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
 //   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
@@ -95,6 +97,7 @@ import { AddUserService } from './services/addUser.service';
   MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,
   MatButtonToggleModule,
+  StorageServiceModule ,
   //   MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   // MatSidenavModule, MatButtonModule, MatIconModule, MatListModule, MatCardModule,
   // MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModule,

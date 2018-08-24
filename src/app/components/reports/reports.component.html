@@ -55,32 +55,36 @@
   <div class="card-body">
     <form #form="ngForm" (submit)="xlsxReport(form)">
       <div class="row">
-        <div class="form-group col-sm-2">
-          <label for="ccmonth">From</label>
-          <my-date-picker name="fromDate" [options]="myDatePickerOptions" [(ngModel)]="fromDate" required></my-date-picker>
-        </div>
-        <div class="form-group col-sm-2">
-          <label for="ccyear">To</label>
-          <my-date-picker name="toDate" [options]="myDatePickerOptions" [(ngModel)]="toDate" required></my-date-picker>
-        </div>
+        
         <div class="col-sm-3">
           <div class="form-group">
             <label for="cvv">Category</label>
-            <select class="form-control" required>
-              <option value="dailyCount">Daily Count</option>
+            <select class="form-control" required (change)="onSelectCategory(categoryType)" [(ngModel)]="categoryType" name="categoryType">
+                <option *ngFor="let c of categoryList" [ngValue]="c" > {{c}} </option>
+              <!-- <option value="dailyCount">Daily Count</option>
+              <option value="hwc">HWC</option> -->
+
             </select>
           </div>
         </div>
         <div class="col-sm-3">
           <div class="form-group">
             <label for="cvv">Cases</label>
-            <select class="form-control" [(ngModel)]="case" name="case" required>
+            <select class="form-control" [(ngModel)]="case" name="case" required (change)="onSelectCase(case)" >
               <option *ngFor="let c of caseList" [ngValue]="c"> {{c}} </option>
               <!-- <option value="case1">Case1</option>
                         <option value="case2">Case2</option> -->
             </select>
           </div>
         </div>
+        <div class="form-group col-sm-2">
+            <label for="ccmonth">From</label>
+            <my-date-picker [disabled]="dateFlag" name="fromDate" [options]="myDatePickerOptions" [(ngModel)]="fromDate" required></my-date-picker>
+          </div>
+          <div class="form-group col-sm-2">
+            <label for="ccyear">To</label>
+            <my-date-picker [disabled]="dateFlag" name="toDate" [options]="myDatePickerOptions" [(ngModel)]="toDate" required></my-date-picker>
+          </div>
         <div class="col-sm-2">
           <div class="form-group">
             <label> </label>
@@ -227,3 +231,6 @@
     </ul>
   </div>
 </div> -->
+
+<ng4-loading-spinner [timeout]="90000" [loadingText]="'Please wait...'"> </ng4-loading-spinner>
+

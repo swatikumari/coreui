@@ -5,6 +5,8 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 import { ConnectorService } from '../../services/connector.service';
 import { ExcelService } from '../../services/excel.service';
+import * as shpwrite from 'shp-write';
+
 
 @Component({
   selector: 'app-compensation',
@@ -14,6 +16,7 @@ import { ExcelService } from '../../services/excel.service';
 })
 export class CompensationComponent implements OnInit {
 
+  options;
   record: any;
   dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -39,6 +42,7 @@ export class CompensationComponent implements OnInit {
          "DC_TOTAL_CASES"
         ]
   ngOnInit() {
+    this.downloadShapeFile();
     this.spinnerService.show();
     this.record = this.wildService.getCompensation_OM();
     this.record.subscribe(res => {
@@ -56,5 +60,43 @@ export class CompensationComponent implements OnInit {
     this.excelService.exportAsExcelFile(this.dataSource.data,  'Compensation');
     return 'success';
   }
+
+ downloadShapeFile(){
+// (optional) set names for feature types and zipped folder
+this.options = {
+  folder: 'myshapes',
+  types: {
+      point: 'mypoints',
+      polygon: 'mypolygons',
+      line: 'mylines'
+  }
+}
+// a GeoJSON bridge for features
+shpwrite.download({
+  type: 'FeatureCollection',
+  features: [
+      {
+          type: 'Feature',
+          geometry: {
+              type: 'Point',
+              coordinates: [0, 0]
+          },
+          properties: {
+              name: 'Foo'
+          }
+      },
+      {
+          type: 'Feature',
+          geometry: {
+              type: 'Point',
+              coordinates: [0, 10]
+          },
+          properties: {
+              name: 'Bar'
+          }
+      }
+  ]
+}, this.options);
+ }
 
 }
