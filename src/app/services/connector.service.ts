@@ -34,15 +34,15 @@ getReport(): Observable<any> {
 getPublicity(): Observable<any> {
   return this.http.get<any>(this.uri + 'getpublicity');
 }
-getDcByRange(fromDate, toDate): Observable<any> {
+getDCreportbyrange(fromDate, toDate): Observable<any> {
 
   return this.http.post<any>(this.uri+ "getDCreportbyrange", {fromdate:fromDate, todate:toDate});
 }
-getDcByCase1(): Observable<any> {
+getDCreportbyMonth(): Observable<any> {
 
   return this.http.get<any>(this.uri+ 'getDCreportbyMonth');
 }
-getDcByCase2(): Observable<any> {
+getDCreportbyday(): Observable<any> {
 
   return this.http.get<any>(this.uri+ 'getDCreportbyday');
 }

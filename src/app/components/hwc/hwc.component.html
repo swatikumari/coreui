@@ -1,10 +1,11 @@
-<ng4-loading-spinner> </ng4-loading-spinner>
+<ng4-loading-spinner [timeout]="90000" [loadingText]="'Please wait...'"> </ng4-loading-spinner>
 
 
 <div class="card">
   <div class="card-header">
     HWC
     <button mat-raised-button (click)="xlsxReport()" class="btn btn-primary pull-right">Export to Excel</button>
+    <button mat-raised-button (click)="kmlReport()" class="btn btn-primary pull-right">Generate KML</button>
   </div>
   <!-- <div class="card-body"> -->
 

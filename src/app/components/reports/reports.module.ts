@@ -9,6 +9,8 @@ import { MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,
   import { MyDatePickerModule } from 'mydatepicker';
   import{FormsModule} from '@angular/forms'
   import {CommonModule} from '@angular/common';
+  import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+
 @NgModule({
   imports: [
 
@@ -19,7 +21,8 @@ MatPaginatorModule, MatSortModule, MatGridListModule, MatMenuModule, MatTabsModu
 MatButtonToggleModule,
 MyDatePickerModule,
 CommonModule,
-FormsModule
+FormsModule,
+Ng4LoadingSpinnerModule.forRoot()
   ],
   declarations: [ ReportsComponent ]
 })

@@ -5,6 +5,13 @@ import { ExcelService } from '../../services/excel.service';
 
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import * as GeoJSON from 'geojson';
+import * as tokml from 'tokml';
+import * as FileSaver from 'file-saver';
+
+
+// var GeoJSON = require('geojson');
+// var tokml =  require('tokml');
 
 @Component({
   selector: 'app-daily-count',
@@ -14,6 +21,14 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 })
 export class DailyCountComponent implements OnInit {
 
+   geoJsonData = [
+    { name: 'Location A', category: 'Store', street: 'Market', lat: 39.984, lng: -75.343 },
+    { name: 'Location B', category: 'House', street: 'Broad', lat: 39.284, lng: -75.833 },
+    { name: 'Location C', category: 'Office', street: 'South', lat: 39.123, lng: -74.534 },
+    { name: 'Location D', category: 'home', street: 'East', lat: 12.9716, lng: 77.5946 }
+
+  ];
+  obj;
   record: any;
   dataSource: any;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -32,6 +47,12 @@ export class DailyCountComponent implements OnInit {
   ];
 
   ngOnInit() {
+  //   this.obj = GeoJSON.parse(this.geoJsonData, {Point: ['lat', 'lng']});
+  //   var kmlNameDescription = tokml(this.obj, {
+  //     name: 'name',
+  //     description: 'description'
+  // });
+  // this.saveAsKmlFile(kmlNameDescription,'Sample' );
     this.spinnerService.show();
     this.record = this.wildService.getDailyCountUsers();
     this.record.subscribe(res => {
@@ -43,6 +64,10 @@ export class DailyCountComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.spinnerService.hide();
     });
+  }
+  private saveAsKmlFile(buffer: any, fileName: string): void {
+    const data: Blob = new Blob([buffer]);
+    FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + '.kml');
   }
 
   ConvertToCSV(objArray) {
