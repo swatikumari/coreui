@@ -1,27 +1,25 @@
+
 <div class="row">
     <div class="col-md-6">
         <div class="card">
-            <div class="card-header">
-              Daily Count
-              <div class="card-header-actions">
-
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="chart-wrapper">
-                <canvas baseChart class="chart"
-                [datasets]="barChartData"
-                [labels]="barChartLabels"
-                [options]="barChartOptions"
-                [legend]="barChartLegend"
-                [chartType]="barChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
-              </div>
+          <div class="card-header">
+            BP vs NH
+          </div>
+          <div class="card-body">
+            <div class="chart-wrapper">
+              <canvas baseChart class="chart"
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColours"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
             </div>
           </div>
-
-    </div>
+        </div>
+      </div>
     <div class="col-md-6">
 
         <div class="card">
@@ -46,10 +44,58 @@
  
   
 </div>
-<!-- <div class="row">
+<div class="row">
+    <div class="col-md-6">
   <div class="card">
-      <agm-map [latitude]="lat" [longitude]="lng" >
-          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    <div class="card-header">
+      BP vs NH
+    </div>
+    <div class="card-body">
+      <div class="chart-wrapper">
+        <canvas baseChart class="chart"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColours"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+          Daily Count
+          <div class="card-header-actions">
+
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-wrapper">
+            <canvas baseChart class="chart"
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+      </div>
+
+</div>
+</div>
+<div class="row">
+  <div class="card">
+      <agm-map style="height: 300px" [latitude]="51.673858" [longitude]="7.815982">
+          <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
+            <agm-marker [latitude]="51.673858" [longitude]="7.815982">
+            </agm-marker><!-- multiple markers -->
+          </agm-marker-cluster>
         </agm-map>
   </div>
-</div> -->
+</div>
