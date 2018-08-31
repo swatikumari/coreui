@@ -2,9 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import {IMyDpOptions} from 'mydatepicker';
 
 import { ConnectorService } from '../../services/connector.service';
 import { ExcelService } from '../../services/excel.service';
+
 import * as shpwrite from 'shp-write';
 
 
@@ -24,6 +26,11 @@ export class CompensationComponent implements OnInit {
   postPerPage = 10;
   pageSizeOptions = [5, 10, 20, 50, 100];
   constructor(private wildService: ConnectorService, private excelService: ExcelService, private spinnerService: Ng4LoadingSpinnerService) { }
+
+  public myDatePickerOptions: IMyDpOptions = {
+    // other options...
+    dateFormat: 'yyyy-mm-dd',
+};
 
   // displayedCol = [
   //   'DC_METAINSTANCE_ID',

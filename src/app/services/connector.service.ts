@@ -70,6 +70,24 @@ getHWCreport_byspacial_range(fromDate, toDate): Observable<any> {
 getHWCreport_byCat(): Observable<any> {
   return this.http.get<any>(this.uri + 'getHWCreport_byCat');
 }
+getBpNhByRange(fromDate, toDate): Observable<any> {
+  return this.http.post<any>('http://192.168.0.103:2000/' + 'getBpNhByRange', {fromdate:fromDate, todate:toDate})
+}
+getPreviousBpNhCount(): Observable<any> {
+  return this.http.get<any>('http://192.168.0.103:2000/' + 'getPreviousBpNhCount');
+}
+getBpNhByCategory(fromDate, toDate) {
+  return this.http.post<any>('http://192.168.0.103:2000/' + 'getBpNhByCategory', {fromdate:fromDate, todate:toDate})
+}
+getBpNhYearly() {
+  return this.http.get<any>('http://192.168.0.103:2000/' + 'getBpNhYearly');
+}
+getBpByCategory(fromDate, toDate) {
+  return this.http.post<any>('http://192.168.0.103:2000/' + 'getBpByCategory', {fromdate:fromDate, todate:toDate})
+}
+getNhByCategory(fromDate, toDate) {
+  return this.http.post<any>('http://192.168.0.103:2000/' + 'getNhByCategory', {fromdate:fromDate, todate:toDate})
+}
 }
 
 

@@ -1,50 +1,185 @@
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            BP vs NH
+<div class="card card-block d-flex">
+  <div class="card-body" >
+    <form class ="align-items-center d-flex justify-content-center" #form="ngForm" (submit)="onSubmit(fromDate, toDate)" >
+          <div class="form-group col-sm-2 ">
+            <label for="ccmonth">From</label>
+            <my-date-picker  name="fromDate" [options]="myDatePickerOptions" [(ngModel)]="fromDate" required></my-date-picker>
+            <!-- <span *ngIf="form.controls['fromDate'].errors?.required && form.controls['fromDate'].dirty">This field is required.</span> -->
           </div>
-          <div class="card-body">
-            <div class="chart-wrapper">
-              <canvas baseChart class="chart"
-              [datasets]="lineChartData"
-              [labels]="lineChartLabels"
-              [options]="lineChartOptions"
-              [colors]="lineChartColours"
-              [legend]="lineChartLegend"
-              [chartType]="lineChartType"
-              (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)"></canvas>
+          <div class="form-group col-sm-2">
+            <label for="ccyear">To</label>
+            <my-date-picker  name="toDate" [options]="myDatePickerOptions" [(ngModel)]="toDate" required></my-date-picker>
+            <!-- <span *ngIf="form.controls['toDate'].errors?.required && form.controls['toDate'].dirty">This field is required.</span> -->
+          </div>
+          <div class="form-group col-sm-0">
+
+                <label> </label>
+                <div >
+                  <!-- <button mat-raised-button type="submit" class="btn btn-primary pull-right">Submit</button> -->
+                  <input [disabled]="!form.valid " class="btn btn-primary" type="submit" value="Submit" />
+                </div>
+              </div>
+            </form>
             </div>
           </div>
-        </div>
-      </div>
-    <div class="col-md-6">
 
+
+<div class="row">
+
+    <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-              HWC
+              Number of Cases Over Time(BP,NH)
               <div class="card-header-actions">
 
               </div>
             </div>
             <div class="card-body">
               <div class="chart-wrapper">
-                <canvas baseChart class="chart"
-                [data]="pieChartData"
-                [labels]="pieChartLabels"
-                [chartType]="pieChartType"
-                (chartHover)="chartHovered($event)"
-                (chartClick)="chartClicked($event)"></canvas>
+                <canvas id="canvas">{{ lineChart }}</canvas>
               </div>
             </div>
           </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+              Daily Count(Previous Day)
+              <div class="card-header-actions">
+
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart-wrapper">
+                <canvas baseChart class="chart" id="ctx">{{ barChart }}</canvas>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+              Number Of Cases By HWC Category(BP + NH)
+              <div class="card-header-actions">
+
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart-wrapper">
+                <canvas baseChart class="chart" id="can">{{ barChart }}</canvas>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+              Number Of Cases By HWC Category(BP)
+              <div class="card-header-actions">
+
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart-wrapper">
+                <canvas baseChart class="chart" id="bp">{{ barChart }}</canvas>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+              Number Of Cases By HWC Category(NH)
+              <div class="card-header-actions">
+
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart-wrapper">
+                <canvas baseChart class="chart" id="nh">{{ barChart }}</canvas>
+              </div>
+            </div>
+          </div>
+    </div>
+
+  <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            Total Cases
+          </div>
+          <div class="card-body">
+            <div >
+                <table class="table table-bordered">
+                    <tr>
+                      <th *ngFor="let col of displayedCol">
+                        {{col}}
+                      </th>
+                    </tr>
+                    <tr *ngFor="let col of dataSource">
+                        <td>{{col.YEAR}}</td>
+                        <td>{{col.NH_CASES}}</td>
+                            <td>{{col.BP_CASE}}</td>
+                    </tr>
+                  </table>
+            </div>
+
+
       </div>
- 
-  
-</div>
-<div class="row">
+      <!-- <div class="col-md-6">
+          <div class="card">
+              <div class="card-header">
+                Daily Count(Previous Day)
+                <div class="card-header-actions">
+
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-wrapper">
+                  <canvas baseChart class="chart"
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+                </div>
+              </div>
+            </div> -->
+
+      </div>
+
+
+        <!-- <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                  Daily Count
+                  <div class="card-header-actions">
+
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="chart-wrapper">
+                    <canvas baseChart class="chart"
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+                  </div>
+                </div>
+              </div>
+
+        </div> -->
+
+<!-- </div> -->
+<!-- <div class="row">
     <div class="col-md-6">
   <div class="card">
     <div class="card-header">
@@ -88,14 +223,14 @@
       </div>
 
 </div>
-</div>
-<div class="row">
+</div> -->
+<!-- <div class="row">
   <div class="card">
       <agm-map style="height: 300px" [latitude]="51.673858" [longitude]="7.815982">
           <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
             <agm-marker [latitude]="51.673858" [longitude]="7.815982">
-            </agm-marker><!-- multiple markers -->
+            </agm-marker>
           </agm-marker-cluster>
         </agm-map>
   </div>
-</div>
+</div> -->
