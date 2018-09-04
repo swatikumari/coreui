@@ -712,6 +712,63 @@ getTable1(){
 
 }
 
+markers: any = [
+  {
+    name: 'Bandipura',
+    lat: 11.7584,
+    lng: 76.4454,
+  },
+  {
+    name: 'Nagarahole',
+    lat: 12.0314,
+    lng: 76.1207,
+  },
+  {
+    name: 'Mysuru',
+    lat: 12.2958,
+    lng: 76.6394
+  },
+  // {
+  //   name: 'Aralikatte',
+  //   lat: 12.9618738900,
+  //   lng: 77.6017209600
+  // },
+  // {
+  //   name: 'Anjanapura',
+  //   lat: 12.9617556600,
+  //   lng: 77.6016538500
+  // },
+  // {
+  //   name: 'Kolavige',
+  //   lat: 12.9622243900,
+  //   lng: 77.6019761100
+  // },
+  // {
+  //   name: 'Alanahalli',
+  //   lat: 12.9746639400,
+  //   lng: 77.6162845200
+  // },
+  // {
+  //   name: 'Achattipura',
+  //   lat: 12.9617345400,
+  //   lng: 77.6018864000
+  // },
+  // {
+  //   name: 'Kalanahundi',
+  //   lat: 12.9617961500,
+  //   lng: 77.6016707600
+  // },
+
+]
+
+mapClicked(event) {
+  console.log(event);
+}
+
+clickedMarker(m, i) {
+
+}
+
 }
 
 // import { Component, OnInit } from '@angular/core';

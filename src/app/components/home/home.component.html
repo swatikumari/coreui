@@ -57,7 +57,8 @@
             </div>
           </div>
     </div>
-
+</div>
+<div class="row">
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
@@ -89,6 +90,8 @@
             </div>
           </div>
     </div>
+  </div>
+<div class="row">
 
     <div class="col-md-6">
         <div class="card">
@@ -105,7 +108,8 @@
             </div>
           </div>
     </div>
-
+  </div>
+  <div class="row">
   <div class="col-md-6">
         <div class="card">
           <div class="card-header">
@@ -224,13 +228,30 @@
 
 </div>
 </div> -->
-<!-- <div class="row">
-  <div class="card">
-      <agm-map style="height: 300px" [latitude]="51.673858" [longitude]="7.815982">
-          <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
-            <agm-marker [latitude]="51.673858" [longitude]="7.815982">
-            </agm-marker>
-          </agm-marker-cluster>
-        </agm-map>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+      <div class="card">
+          <agm-map
+          [latitude]="12.1885"
+          [longitude]="76.3820"
+          [zoom]="10"
+          (mapClick)= "mapClicked($event)"
+          >
+              <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
+                <agm-marker
+                *ngFor="let m of markers; let i = index"
+                (markerClick)="clickedMarker(m, i)"
+                [latitude]="m.lat"
+                [longitude]="m.lng">
+                <agm-info-window>
+                  <strong>{{m.name}}</strong>
+                </agm-info-window>
+                </agm-marker>
+                <!-- <agm-marker [latitude]="15.00" [longitude]="75.00" ></agm-marker> -->
+              </agm-marker-cluster>
+            </agm-map>
+      </div>
   </div>
-</div> -->
+</div>

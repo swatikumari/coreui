@@ -4,37 +4,37 @@
   <form [formGroup]="createForm" >
       <mat-form-field >
           <input matInput placeholder="Firstname" type="text" #firstname   formControlName="firstname" required>
-          <mat-error *ngIf="isFieldInvalid('userName')">
+          <mat-error *ngIf="isFieldInvalid('firstname')">
             Please fill this field
           </mat-error>
         </mat-form-field>
         <mat-form-field >
           <input matInput placeholder="Lastname" type="text"  #lastname  formControlName="lastname" required>
-          <mat-error *ngIf="isFieldInvalid('userName')">
+          <mat-error *ngIf="isFieldInvalid('lastname')">
             Please fill this field
           </mat-error>
         </mat-form-field>
     <mat-form-field >
       <input matInput placeholder="Username" type="text"   #username formControlName="username" required>
-      <mat-error *ngIf="isFieldInvalid('userName')">
+      <mat-error *ngIf="isFieldInvalid('username')">
         Please fill this field
       </mat-error>
     </mat-form-field>
     <mat-form-field >
         <input matInput placeholder="Phone" type="text"   #phonenumber  formControlName="phonenumber" required>
-        <mat-error *ngIf="isFieldInvalid('userName')">
+        <mat-error *ngIf="isFieldInvalid('phonenumber')">
           Please fill this field
         </mat-error>
       </mat-form-field>
       <mat-form-field >
           <input matInput placeholder="Email" type="email"     #email formControlName="email" required>
-          <mat-error *ngIf="isFieldInvalid('userName')">
+          <mat-error *ngIf="isFieldInvalid('email')">
             Please fill this field
           </mat-error>
         </mat-form-field>
         <mat-form-field >
           <input matInput placeholder="Password" type="password"  #password   formControlName="password" required>
-          <mat-error *ngIf="isFieldInvalid('userName')">
+          <mat-error *ngIf="isFieldInvalid('password')">
             Please fill this field
           </mat-error>
           </mat-form-field>

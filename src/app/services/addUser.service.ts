@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class AddUserService {
 
-  private uri = 'https://nodecleaner.azurewebsites.net/';
+  private uri = 'https://node-api-215311.appspot.com/';
 
 
   constructor(private http: HttpClient) {
