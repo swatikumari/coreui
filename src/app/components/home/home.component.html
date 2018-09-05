@@ -234,12 +234,12 @@
   <div class="col-md-12">
       <div class="card">
           <agm-map
-          [latitude]="12.1885"
-          [longitude]="76.3820"
+          [latitude]="-19.257753"
+          [longitude]="146.823688"
           [zoom]="10"
           (mapClick)= "mapClicked($event)"
           >
-              <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
+              <!-- <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
                 <agm-marker
                 *ngFor="let m of markers; let i = index"
                 (markerClick)="clickedMarker(m, i)"
@@ -250,7 +250,8 @@
                 </agm-info-window>
                 </agm-marker>
                 <!-- <agm-marker [latitude]="15.00" [longitude]="75.00" ></agm-marker> -->
-              </agm-marker-cluster>
+              <!-- </agm-marker-cluster> -->
+              <agm-kml-layer url='https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml' [clickable]="false"  [suppressInfoWindows]="true"></agm-kml-layer>
             </agm-map>
       </div>
   </div>

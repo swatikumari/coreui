@@ -715,49 +715,49 @@ getTable1(){
 markers: any = [
   {
     name: 'Bandipura',
-    lat: 11.7584,
-    lng: 76.4454,
+    lat: 11.75840000,
+    lng: 76.44540000,
   },
   {
     name: 'Nagarahole',
-    lat: 12.0314,
-    lng: 76.1207,
+    lat: 12.03140000,
+    lng: 76.12070000,
   },
   {
     name: 'Mysuru',
-    lat: 12.2958,
-    lng: 76.6394
+    lat: 12.29580000,
+    lng: 76.63940000
   },
-  // {
-  //   name: 'Aralikatte',
-  //   lat: 12.9618738900,
-  //   lng: 77.6017209600
-  // },
-  // {
-  //   name: 'Anjanapura',
-  //   lat: 12.9617556600,
-  //   lng: 77.6016538500
-  // },
-  // {
-  //   name: 'Kolavige',
-  //   lat: 12.9622243900,
-  //   lng: 77.6019761100
-  // },
-  // {
-  //   name: 'Alanahalli',
-  //   lat: 12.9746639400,
-  //   lng: 77.6162845200
-  // },
-  // {
-  //   name: 'Achattipura',
-  //   lat: 12.9617345400,
-  //   lng: 77.6018864000
-  // },
-  // {
-  //   name: 'Kalanahundi',
-  //   lat: 12.9617961500,
-  //   lng: 77.6016707600
-  // },
+  {
+    name: 'Aralikatte',
+    lat: 12.9618738900,
+    lng: 77.6017209600
+  },
+  {
+    name: 'Anjanapura',
+    lat: 12.9617556600,
+    lng: 77.6016538500
+  },
+  {
+    name: 'Kolavige',
+    lat: 12.1738443,
+    lng: 76.1319953
+  },
+  {
+    name: 'Alanahalli',
+    lat: 12.9746639400,
+    lng: 77.6162845200
+  },
+  {
+    name: 'Achattipura',
+    lat: 12.9617345400,
+    lng: 77.6018864000
+  },
+  {
+    name: 'Kalanahundi',
+    lat: 12.9617961500,
+    lng: 77.6016707600
+  },
 
 ]
 
