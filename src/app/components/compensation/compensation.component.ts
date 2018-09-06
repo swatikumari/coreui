@@ -49,7 +49,7 @@ export class CompensationComponent implements OnInit {
          "DC_TOTAL_CASES"
         ]
   ngOnInit() {
-    this.downloadShapeFile();
+    //this.downloadShapeFile();
     this.spinnerService.show();
     this.record = this.wildService.getCompensation_OM();
     this.record.subscribe(res => {
