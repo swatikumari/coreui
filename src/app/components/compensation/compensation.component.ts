@@ -21,6 +21,8 @@ export class CompensationComponent implements OnInit {
   options;
   record: any;
   dataSource: any;
+  fromDate;
+  toDate;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   totalPost = 10;
   postPerPage = 10;

@@ -737,54 +737,57 @@ getTable1(){
 
 }
 
+
+
 markers: any = [
   {
-    name: 'Bandipura',
-    lat: 11.75840000,
-    lng: 76.44540000,
+
+    lat: 11.90755,
+    lng: 76.52475
   },
   {
-    name: 'Nagarahole',
-    lat: 12.03140000,
-    lng: 76.12070000,
+
+    lat: 11.90493,
+    lng: 76.52373,
   },
   {
-    name: 'Mysuru',
-    lat: 12.29580000,
-    lng: 76.63940000
+
+    lat: 11.94967,
+    lng: 76.55109
   },
   {
-    name: 'Aralikatte',
-    lat: 12.9618738900,
-    lng: 77.6017209600
+
+    lat: 11.91006,
+    lng: 76.53287
   },
   {
-    name: 'Anjanapura',
-    lat: 12.9617556600,
-    lng: 77.6016538500
+
+    lat: 11.94233,
+    lng: 76.52375
   },
   {
-    name: 'Kolavige',
-    lat: 12.1738443,
-    lng: 76.1319953
+
+    lat: 11.91907,
+    lng: 76.55543
   },
   {
-    name: 'Alanahalli',
-    lat: 12.9746639400,
-    lng: 77.6162845200
+
+    lat: 11.93501,
+    lng: 76.55564
   },
   {
-    name: 'Achattipura',
-    lat: 12.9617345400,
-    lng: 77.6018864000
+
+    lat: 11.93501,
+    lng: 76.56318
   },
   {
-    name: 'Kalanahundi',
-    lat: 12.9617961500,
-    lng: 77.6016707600
+
+    lat: 11.9308,
+    lng: 76.55449
   },
 
 ]
+
 
 mapClicked(event) {
   console.log(event);

@@ -129,8 +129,8 @@
           [zoom]="10"
           (mapClick)= "mapClicked($event)"
           >
-              <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
-                <agm-marker
+              <!-- <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'"> -->
+                <!-- <agm-marker
                 *ngFor="let m of markers; let i = index"
                 (markerClick)="clickedMarker(m, i)"
                 [latitude]="m.lat"
@@ -138,11 +138,16 @@
                 <agm-info-window>
                   <strong>{{m.name}}</strong>
                 </agm-info-window>
-                </agm-marker>
-                <agm-marker [latitude]="15.00" [longitude]="75.00" ></agm-marker>
-               </agm-marker-cluster>
-              <!-- <agm-kml-layer url='https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml' [clickable]="true"  [suppressInfoWindows]="true"></agm-kml-layer> -->
+                // Example kml file
+                "http://code.google.com/apis/kml/documentation/KML_Samples.kml"
+                </agm-marker> -->
+                <!-- <agm-marker [latitude]="15.00" [longitude]="75.00" ></agm-marker> -->
+               <!-- </agm-marker-cluster> -->
+              <agm-kml-layer url="https://drive.google.com/uc?export=download&id=198DfmfcxuNNLEo10ItBtDX-lRz3Puncf"  [clickable]="true"  [suppressInfoWindows]="true"></agm-kml-layer>
+              <!-- <agm-polygon [paths]="markers">
+                  </agm-polygon> -->
             </agm-map>
+
       </div>
   </div>
 </div>
