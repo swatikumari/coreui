@@ -53,7 +53,7 @@ export class HwcComponent implements OnInit {
         this.spinnerService.hide();
         return;
       }
-     
+
       this.dataSource = new MatTableDataSource(res.response);
       this.dataSource.paginator = this.paginator;
       this.spinnerService.hide();

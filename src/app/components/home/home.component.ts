@@ -52,36 +52,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  // lineChart
-  // public lineChartData: Array<any> = [
-  //   {data: [65, 59, 80, 81, 56, 55, 40], label: 'BP'},
-  //   {data: [28, 48, 40, 19, 86, 27, 90], label: 'NH'}
-  // ];
-  // public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  // public lineChartOptions: any = {
-  //   animation: false,
-  //   responsive: true
-  // };
-  // public lineChartColours: Array<any> = [
-  //   { // grey
-  //     backgroundColor: 'rgba(148,159,177,0.2)',
-  //     borderColor: 'rgba(148,159,177,1)',
-  //     pointBackgroundColor: 'rgba(148,159,177,1)',
-  //     pointBorderColor: '#fff',
-  //     pointHoverBackgroundColor: '#fff',
-  //     pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-  //   },
-  //   { // dark grey
-  //     backgroundColor: 'rgba(77,83,96,0.2)',
-  //     borderColor: 'rgba(77,83,96,1)',
-  //     pointBackgroundColor: 'rgba(77,83,96,1)',
-  //     pointBorderColor: '#fff',
-  //     pointHoverBackgroundColor: '#fff',
-  //     pointHoverBorderColor: 'rgba(77,83,96,1)'
-  //   }
-  // ];
-  // public lineChartLegend = true;
-  // public lineChartType = 'line';
+
 
   onSubmit(fromdate, todate) {
     if (!fromdate || !todate) {
@@ -228,28 +199,7 @@ dateArr;
       });
     }
 
-    // this.dataSet.forEach(element => {
-    // //    date.push(element.CASE_DATE);
-    // //    nh_case.push(element.NH_CASES);
-    // //    bp_case.push(element.BP_CASE);
-    // //
-    // date.push(element.CASE_DATE);
-    //  if (element.CATEGORY === "CRPD") {
-    //   crpd_cases.push(element.TOTAL_BP_NH_CASES);
-    //  } else if(element.CATEGORY === "PD"){
-    //   pd_cases.push(element.TOTAL_BP_NH_CASES);
-    //  } else if(element.CATEGORY === "LP"){
-    //   lp_cases.push(element.TOTAL_BP_NH_CASES);
-    // } else if(element.CATEGORY === "CR"){
-    //   cr_cases.push(element.TOTAL_BP_NH_CASES);
-    // } else{
-    //   hi_cases.push(element.TOTAL_BP_NH_CASES);
-    // }
 
-  // });
-      // date;
-      // nh_case;
-      // bp_case;
 
        this.lineChart = new Chart('can', {
          type: 'line',
@@ -381,28 +331,6 @@ dateArr;
         });
       }
 
-      // this.dataSet.forEach(element => {
-      // //    date.push(element.CASE_DATE);
-      // //    nh_case.push(element.NH_CASES);
-      // //    bp_case.push(element.BP_CASE);
-      // //
-      // date.push(element.CASE_DATE);
-      //  if (element.CATEGORY === "CRPD") {
-      //   crpd_cases.push(element.TOTAL_BP_NH_CASES);
-      //  } else if(element.CATEGORY === "PD"){
-      //   pd_cases.push(element.TOTAL_BP_NH_CASES);
-      //  } else if(element.CATEGORY === "LP"){
-      //   lp_cases.push(element.TOTAL_BP_NH_CASES);
-      // } else if(element.CATEGORY === "CR"){
-      //   cr_cases.push(element.TOTAL_BP_NH_CASES);
-      // } else{
-      //   hi_cases.push(element.TOTAL_BP_NH_CASES);
-      // }
-
-    // });
-        // date;
-        // nh_case;
-        // bp_case;
 
          this.lineChart = new Chart('bp', {
            type: 'line',
@@ -543,34 +471,7 @@ dateArr;
           });
         }
 
-        // this.dataSet.forEach(element => {
-        // //    date.push(element.CASE_DATE);
-        // //    nh_case.push(element.NH_CASES);
-        // //    bp_case.push(element.BP_CASE);
-        // //
-        // date.push(element.CASE_DATE);
-        //  if (element.CATEGORY === "CRPD") {
-        //   crpd_cases.push(element.TOTAL_BP_NH_CASES);
-        //  } else if(element.CATEGORY === "PD"){
-        //   pd_cases.push(element.TOTAL_BP_NH_CASES);
-        //  } else if(element.CATEGORY === "LP"){
-        //   lp_cases.push(element.TOTAL_BP_NH_CASES);
-        // } else if(element.CATEGORY === "CR"){
-        //   cr_cases.push(element.TOTAL_BP_NH_CASES);
-        // } else{
-        //   hi_cases.push(element.TOTAL_BP_NH_CASES);
-        // }
 
-      // });
-          // date;
-          // nh_case;
-          // bp_case;
-          // dateArr;
-          //  crpd_cases;
-          //  pd_cases;
-        //   for(let i=0; i<4; i++){
-        //   lp_cases.push(Math.floor(Math.random() * 100) + 1 )
-        // }
         lp_cases = ["25", "50", "100", "150", "200"];
           //  cr_cases;
            this.lineChart = new Chart('nh', {
@@ -642,9 +543,7 @@ dateArr;
 
  barGraph() {
 
-  // const date = ["2018-08-27T18:30:00.000Z"];
-  // const nh_case = ["43"];
-  // const bp_case = ["23"];
+
 
  this.record = this.wildService.getPreviousBpNhCount();
 
@@ -705,10 +604,6 @@ dateArr;
 
  }
 
-// Pie
-//  public pieChartLabels: string[] = ['HWC1', 'HWC2', 'HWC3'];
-//  public pieChartData: number[] = [300, 500, 100];
-//  public pieChartType = 'pie';
 
  displayedCol = [];
  displayedRows = [];
@@ -722,10 +617,6 @@ pageSizeOptions = [5, 10, 20, 50, 100];
 getTable1(){
   this.record = this.wildService.getBpNhYearly();
   this.record.subscribe(res => {
-    // if (!res) {
-    //   this.spinnerService.hide();
-    //   return;
-    // }
 
      this.dataSource = res.data as string[];
     for (let key in res.data[0]){
@@ -739,54 +630,54 @@ getTable1(){
 
 
 
-markers: any = [
-  {
+// markers: any = [
+//   {
 
-    lat: 11.90755,
-    lng: 76.52475
-  },
-  {
+//     lat: 11.90755,
+//     lng: 76.52475
+//   },
+//   {
 
-    lat: 11.90493,
-    lng: 76.52373,
-  },
-  {
+//     lat: 11.90493,
+//     lng: 76.52373,
+//   },
+//   {
 
-    lat: 11.94967,
-    lng: 76.55109
-  },
-  {
+//     lat: 11.94967,
+//     lng: 76.55109
+//   },
+//   {
 
-    lat: 11.91006,
-    lng: 76.53287
-  },
-  {
+//     lat: 11.91006,
+//     lng: 76.53287
+//   },
+//   {
 
-    lat: 11.94233,
-    lng: 76.52375
-  },
-  {
+//     lat: 11.94233,
+//     lng: 76.52375
+//   },
+//   {
 
-    lat: 11.91907,
-    lng: 76.55543
-  },
-  {
+//     lat: 11.91907,
+//     lng: 76.55543
+//   },
+//   {
 
-    lat: 11.93501,
-    lng: 76.55564
-  },
-  {
+//     lat: 11.93501,
+//     lng: 76.55564
+//   },
+//   {
 
-    lat: 11.93501,
-    lng: 76.56318
-  },
-  {
+//     lat: 11.93501,
+//     lng: 76.56318
+//   },
+//   {
 
-    lat: 11.9308,
-    lng: 76.55449
-  },
+//     lat: 11.9308,
+//     lng: 76.55449
+//   },
 
-]
+// ]
 
 
 mapClicked(event) {
@@ -798,71 +689,4 @@ clickedMarker(m, i) {
 }
 
 }
-
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-home',
-//   templateUrl: './home.component.html',
-//   styleUrls: ['./home.component.scss']
-// })
-// export class HomeComponent implements OnInit {
-
-//   title: string = 'My first AGM project';
-//   lat: number = 15.3173;
-//   lng: number = 75.7139;
-//   markers =[{"latitude":12.0314,"longitude":76.1207},{"latitude":11.7584,"longitude":76.4454},{"latitude":12.0071,"longitude":76.3898} ]
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-//   // lineChart
-//   public lineChartData: Array<any> = [
-//     {data: [65, 59, 80, 81, 56, 55, 40], label: 'BP'},
-//     {data: [28, 48, 40, 19, 86, 27, 90], label: 'NH'}
-//   ];
-//   public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-//   public lineChartOptions: any = {
-//     animation: false,
-//     responsive: true
-//   };
-//   public lineChartColours: Array<any> = [
-//     { // grey
-//       backgroundColor: 'rgba(148,159,177,0.2)',
-//       borderColor: 'rgba(148,159,177,1)',
-//       pointBackgroundColor: 'rgba(148,159,177,1)',
-//       pointBorderColor: '#fff',
-//       pointHoverBackgroundColor: '#fff',
-//       pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-//     },
-//     { // dark grey
-//       backgroundColor: 'rgba(77,83,96,0.2)',
-//       borderColor: 'rgba(77,83,96,1)',
-//       pointBackgroundColor: 'rgba(77,83,96,1)',
-//       pointBorderColor: '#fff',
-//       pointHoverBackgroundColor: '#fff',
-//       pointHoverBorderColor: 'rgba(77,83,96,1)'
-//     }
-//   ];
-//   public lineChartLegend = true;
-//   public lineChartType = 'line';
-// // barChart
-// public barChartOptions: any = {
-//   scaleShowVerticalLines: false,
-//   responsive: true
-// };
-// public barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-// public barChartType = 'bar';
-// public barChartLegend = true;
-
-// public barChartData: any[] = [
-//   {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-//   {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
-// ];
-
-//  // Pie
-//  public pieChartLabels: string[] = ['HWC1', 'HWC2', 'HWC3'];
-//  public pieChartData: number[] = [300, 500, 100];
-//  public pieChartType = 'pie';
-// }
 

@@ -55,6 +55,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 // import { HwcComponent } from './components/hwc/hwc.component';
 import { HwcModule } from './components/hwc/hwc.module';
+import { ErrorsModule } from './components/errors/errors.module';
 // import { CompensationComponent } from './components/compensation/compensation.component';
 // import { DailyCountComponent } from './components/daily-count/daily-count.component';
 // import { PublicityComponent } from './components/publicity/publicity.component';
@@ -72,6 +73,7 @@ import { AddHttpHeaderInterceptor } from './services/setAuthHeader.service';
 
 import { UsersModule } from './components/users/users.module';
 import { AddUserService } from './services/addUser.service';
+
 @NgModule({
   imports: [
 
@@ -91,6 +93,7 @@ import { AddUserService } from './services/addUser.service';
     DailyCountModule,
     PublicityModule,
     UsersModule,
+    ErrorsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule, MatTableModule, MatFormFieldModule, MatInputModule,

@@ -51,6 +51,11 @@ export const navItems = [
     icon: 'icon-pencil',
 
   },
+  {
+    name: 'Errors',
+    url: '/errors',
+    icon: 'icon-shield',
+  },
   // {
   //   title: true,
   //   name: 'Theme'

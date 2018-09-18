@@ -51,7 +51,7 @@ export class CompensationComponent implements OnInit {
          "DC_TOTAL_CASES"
         ]
   ngOnInit() {
-    //this.downloadShapeFile();
+    this.downloadShapeFile();
     this.spinnerService.show();
     this.record = this.wildService.getCompensation_OM();
     this.record.subscribe(res => {
@@ -88,22 +88,22 @@ shpwrite.download({
           type: 'Feature',
           geometry: {
               type: 'Point',
-              coordinates: [0, 0]
+              coordinates: [15.3173, 75.7139]
           },
           properties: {
               name: 'Foo'
           }
       },
-      {
-          type: 'Feature',
-          geometry: {
-              type: 'Point',
-              coordinates: [0, 10]
-          },
-          properties: {
-              name: 'Bar'
-          }
-      }
+      // {
+      //     type: 'Feature',
+      //     geometry: {
+      //         type: 'Point',
+      //         coordinates: [11.90493, 76.52373]
+      //     },
+      //     properties: {
+      //         name: 'Bar'
+      //     }
+      // }
   ]
 }, this.options);
  }

@@ -93,6 +93,10 @@ export const routes: Routes = [
         loadChildren: './components/users/users.module#UsersModule'
       },
       {
+        path: 'errors',
+        loadChildren: './components/errors/errors.module#ErrorsModule'
+      },
+      {
         path: 'dashboard',
         loadChildren: './components/home/home.module#HomeModule'
       },
