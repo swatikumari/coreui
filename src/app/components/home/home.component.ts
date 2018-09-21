@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.barGraph();
+    this.barGraph2();
     this.lineGraph(this.fromDate, this.toDate);
   this.lineGraph2(this.fromDate, this.toDate);
   this.lineGraph3(this.fromDate,this.toDate);
@@ -470,6 +471,9 @@ dateArr;
           }
           });
         }
+        console.log(crpd_cases);
+        let crpd_sum = crpd_cases.reduce((a, b) => a + b, 0);
+        console.log(crpd_sum);
 
 
         lp_cases = ["25", "50", "100", "150", "200"];
@@ -604,6 +608,44 @@ dateArr;
 
  }
 
+ barGraph2() {
+  let crpd_cases = [20, 30, 40, 10, 60];
+  let crpd_sum = crpd_cases.reduce((a, b) => a + b, 0);
+  console.log(crpd_sum);
+   let bar_chart = new Chart('ctx2',
+    {
+      type: 'bar',
+      data: {
+        labels: ['crpd_cases', 'cr_cases', 'pd_cases', 'lp_cases', 'hi_cases'],
+        datasets: [
+          {
+            label: "Bandipura",
+            data: [20, 30, 40, 10, 60],
+            backgroundColor: "orange",
+            borderColor: "purple",
+            borderWidth:1
+          },
+          {
+            label: "Nagarahole",
+            data: [120, 50, 70, 90, 110],
+            backgroundColor: "yellow",
+            borderColor: "green",
+            borderWidth:1
+          }
+        ]
+      },
+      options: {
+        legend : {
+          display: true,
+          labels: {
+            boxWidth: 10
+          },
+          position: "right"
+        }
+      }
+    }
+  )
+}
 
  displayedCol = [];
  displayedRows = [];

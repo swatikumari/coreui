@@ -1,138 +1,149 @@
 <div class="card date card-block ">
-  <div class="card-body date-body" >
-    <form class ="align-items-center d-flex justify-content-center" #form="ngForm" (submit)="onSubmit(fromDate, toDate)" >
-          <div class="form-group col-sm-2">
-            <label for="fromDate" >From</label>
+  <div class="card-body date-body">
+    <form class="align-items-center d-flex justify-content-center" #form="ngForm" (submit)="onSubmit(fromDate, toDate)">
+      <div class="form-group col-sm-2">
+        <label for="fromDate">From</label>
 
-            <my-date-picker  name="fromDate" [options]="myDatePickerOptions" [(ngModel)]="fromDate" required></my-date-picker>
-            <!-- <span *ngIf="form.controls['fromDate'].errors?.required && form.controls['fromDate'].dirty">This field is required.</span> -->
+        <my-date-picker name="fromDate" [options]="myDatePickerOptions" [(ngModel)]="fromDate" required></my-date-picker>
+        <!-- <span *ngIf="form.controls['fromDate'].errors?.required && form.controls['fromDate'].dirty">This field is required.</span> -->
 
-          </div>
-          <div class="form-group col-sm-2">
-            <label for="toDate">To</label>
-            <my-date-picker  name="toDate" [options]="myDatePickerOptions" [(ngModel)]="toDate" required></my-date-picker>
-            <!-- <span *ngIf="form.controls['toDate'].errors?.required && form.controls['toDate'].dirty">This field is required.</span> -->
-          </div>
-          <div class="form-group ">
+      </div>
+      <div class="form-group col-sm-2">
+        <label for="toDate">To</label>
+        <my-date-picker name="toDate" [options]="myDatePickerOptions" [(ngModel)]="toDate" required></my-date-picker>
+        <!-- <span *ngIf="form.controls['toDate'].errors?.required && form.controls['toDate'].dirty">This field is required.</span> -->
+      </div>
+      <div class="form-group ">
 
-                <label> </label>
-                <div >
-                  <!-- <button mat-raised-button type="submit" class="btn btn-primary pull-right">Submit</button> -->
-                  <input [disabled]="!form.valid " class="btn btn-primary" type="submit" value="Submit" />
-                </div>
-              </div>
-            </form>
-            </div>
-          </div>
+        <label> </label>
+        <div>
+          <!-- <button mat-raised-button type="submit" class="btn btn-primary pull-right">Submit</button> -->
+          <input [disabled]="!form.valid " class="btn btn-primary" type="submit" value="Submit" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
 
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header c1">
+        Number of Cases Over Time(BP,NH)
+        <div class="card-header-actions">
+
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas id="canvas">{{ lineChart }}</canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header c2">
+        Number Of Cases By HWC Category
+
+
+        <div class="card-header-actions">
           <div class="row">
-
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header c1">
-                      Number of Cases Over Time(BP,NH)
-                      <div class="card-header-actions">
-
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="chart-wrapper">
-                        <canvas id="canvas">{{ lineChart }}</canvas>
-                      </div>
-                    </div>
-                  </div>
+            <div class="radio">
+              <label><input type="radio" [(ngModel)]="chartType" name="chartType" value="both">BP + NH &nbsp;</label>
             </div>
-
-            <div class="col-md-6">
-              <div class="card">
-                  <div class="card-header c2">
-                    Number Of Cases By HWC Category
-
-
-                    <div class="card-header-actions">
-                      <div class="row">
-                        <div class="radio">
-                            <label><input type="radio" [(ngModel)]="chartType" name="chartType" value="both">BP + NH &nbsp;</label>
-                        </div>
-                        <div class="radio">
-                            <label><input type="radio" [(ngModel)]="chartType" name="chartType" value="bp">BP &nbsp;</label>
-                        </div>
-                        <div class="radio">
-                            <label><input type="radio" [(ngModel)]="chartType" name="chartType" value="nh">NH &nbsp;</label>
-                        </div>
-                </div>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <div class="chart-wrapper" [hidden]="chartType !== 'both'">
-                      <canvas baseChart class="chart" id="can">{{ barChart }}</canvas>
-                    </div>
-                    <div class="chart-wrapper" [hidden]="chartType !== 'bp'">
-                      <canvas baseChart class="chart" id="bp">{{ barChart }}</canvas>
-                    </div>
-                    <div class="chart-wrapper" [hidden]="chartType !== 'nh'">
-                      <canvas baseChart class="chart" id="nh">{{ barChart }}</canvas>
-                    </div>
-                  </div>
-                </div>
+            <div class="radio">
+              <label><input type="radio" [(ngModel)]="chartType" name="chartType" value="bp">BP &nbsp;</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" [(ngModel)]="chartType" name="chartType" value="nh">NH &nbsp;</label>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="card">
-                <div class="card-header c3">
-                  Daily Count(Previous Day)
-                  <div class="card-header-actions">
-
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="chart-wrapper">
-                    <canvas baseChart class="chart" id="ctx">{{ barChart }}</canvas>
-                  </div>
-                </div>
-              </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper" [hidden]="chartType !== 'both'">
+          <canvas baseChart class="chart" id="can">{{ barChart }}</canvas>
         </div>
-        <div class="col-md-6">
-          <div class="card">
-            <div class="card-header c4">
-              Total Cases
-            </div>
-            <div class="card-body">
-              <div >
-                  <table class="table table-bordered">
-                      <tr>
-                        <th *ngFor="let col of displayedCol">
-                          {{col}}
-                        </th>
-                      </tr>
-                      <tr *ngFor="let col of dataSource">
-                          <td>{{col.YEAR}}</td>
-                          <td>{{col.NH_CASES}}</td>
-                              <td>{{col.BP_CASE}}</td>
-                      </tr>
-                    </table>
-              </div>
+        <div class="chart-wrapper" [hidden]="chartType !== 'bp'">
+          <canvas baseChart class="chart" id="bp">{{ barChart }}</canvas>
+        </div>
+        <div class="chart-wrapper" [hidden]="chartType !== 'nh'">
+          <canvas baseChart class="chart" id="nh">{{ barChart }}</canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header c3">
+        Daily Count(Previous Day)
+        <div class="card-header-actions">
+
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart" id="ctx">{{ barChart }}</canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header c4">
+        Total Cases
+      </div>
+      <div class="card-body">
+        <div>
+          <table class="table table-bordered">
+            <tr>
+              <th *ngFor="let col of displayedCol">
+                {{col}}
+              </th>
+            </tr>
+            <tr *ngFor="let col of dataSource">
+              <td>{{col.YEAR}}</td>
+              <td>{{col.NH_CASES}}</td>
+              <td>{{col.BP_CASE}}</td>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 </div>
-</div>
-</div>
-
-          </div>
-
 
 
 <div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header c3">
+        Daily Count
+        <div class="card-header-actions">
+
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-wrapper">
+          <canvas baseChart class="chart" id="ctx2">{{ barChart }}</canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-12">
-      <div class="card">
-          <agm-map
-          [latitude]="12.112323951351279"
-          [longitude]="76.5465378546661"
-          [zoom]="10"
-          (mapClick)= "mapClicked($event)"
-          >
-              <!-- <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'"> -->
-                <!-- <agm-marker
+    <div class="card">
+      <agm-map [latitude]="12.112323951351279" [longitude]="76.5465378546661" [zoom]="10" (mapClick)="mapClicked($event)">
+        <!-- <agm-marker-cluster imagePath="'https://googlemaps.github.io/js-marker-clusterer/images/m'"> -->
+        <!-- <agm-marker
                 *ngFor="let m of markers; let i = index"
                 (markerClick)="clickedMarker(m, i)"
                 [latitude]="m.lat"
@@ -143,13 +154,14 @@
                 // Example kml file
                 "http://code.google.com/apis/kml/documentation/KML_Samples.kml"
                 </agm-marker> -->
-                <!-- <agm-marker [latitude]="15.00" [longitude]="75.00" ></agm-marker> -->
-               <!-- </agm-marker-cluster> -->
-              <agm-kml-layer url="https://drive.google.com/uc?export=download&id=198DfmfcxuNNLEo10ItBtDX-lRz3Puncf"  [clickable]="true"  [suppressInfoWindows]="true"></agm-kml-layer>
-              <!-- <agm-polygon [paths]="markers">
+        <!-- <agm-marker [latitude]="15.00" [longitude]="75.00" ></agm-marker> -->
+        <!-- </agm-marker-cluster> -->
+        <agm-kml-layer url="https://drive.google.com/uc?export=download&id=198DfmfcxuNNLEo10ItBtDX-lRz3Puncf"
+          [clickable]="true" [suppressInfoWindows]="true"></agm-kml-layer>
+        <!-- <agm-polygon [paths]="markers">
                   </agm-polygon> -->
-            </agm-map>
+      </agm-map>
 
-      </div>
+    </div>
   </div>
 </div>

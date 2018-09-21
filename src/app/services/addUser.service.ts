@@ -7,7 +7,8 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class AddUserService {
 
-  private uri = 'https://wildseve-node.appspot.com/';
+  // private uri = 'https://wildseve-node.appspot.com/';
+  private uri = 'https://wildseveproject.appspot.com/';
 
 
   constructor(private http: HttpClient) {
