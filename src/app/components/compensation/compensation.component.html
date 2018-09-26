@@ -30,31 +30,31 @@
 
   <div class="mat-elevation-z8 hwc">
     <mat-table [dataSource]="dataSource">
-      <ng-container matColumnDef="DC_METAINSTANCE_ID">
+      <ng-container matColumnDef="COM_METAINSTANCE_ID">
         <mat-header-cell *matHeaderCellDef>DC_METAINSTANCE_ID</mat-header-cell>
-        <mat-cell *matCellDef="let data">{{data.DC_METAINSTANCE_ID}}</mat-cell>
+        <mat-cell *matCellDef="let data">{{data.COM_METAINSTANCE_ID}}</mat-cell>
       </ng-container>
-      <ng-container matColumnDef="DC_DEVICE_ID">
+      <ng-container matColumnDef="COM_DEVICE_ID">
         <mat-header-cell *matHeaderCellDef>DC_DEVICE_ID</mat-header-cell>
-        <mat-cell *matCellDef="let data">{{data.DC_DEVICE_ID}}</mat-cell>
+        <mat-cell *matCellDef="let data">{{data.COM_DEVICE_ID}}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="DC_USER_NAME">
+      <ng-container matColumnDef="COM_USER_NAME">
         <mat-header-cell *matHeaderCellDef>DC_USER_NAME</mat-header-cell>
-        <mat-cell *matCellDef="let data">{{data.DC_USER_NAME}}</mat-cell>
+        <mat-cell *matCellDef="let data">{{data.COM_USER_NAME}}</mat-cell>
       </ng-container>
-
+<!--
       <ng-container matColumnDef="DC_NH_CASES">
         <mat-header-cell *matHeaderCellDef>DC_NH_CASES</mat-header-cell>
-        <mat-cell *matCellDef="let data">{{data.DC_NH_CASES}}</mat-cell>
+        <mat-cell *matCellDef="let data">{{data.COM_NH_CASES}}</mat-cell>
       </ng-container>
       <ng-container matColumnDef="DC_BP_CASES">
         <mat-header-cell *matHeaderCellDef>DC_BP_CASES</mat-header-cell>
         <mat-cell *matCellDef="let data">{{data.DC_BP_CASES}}</mat-cell>
-      </ng-container>
-      <ng-container matColumnDef="DC_TOTAL_CASES">
+      </ng-container> -->
+      <ng-container matColumnDef="COM_OM_TOTAL_CASES">
         <mat-header-cell *matHeaderCellDef>DC_TOTAL_CASES</mat-header-cell>
-        <mat-cell *matCellDef="let data">{{data.DC_TOTAL_CASES}}</mat-cell>
+        <mat-cell *matCellDef="let data">{{data.COM_OM_TOTAL_CASES}}</mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedCol"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedCol"></mat-row>

@@ -104,4 +104,15 @@ export class ConnectorService {
       todate: toDate
     });
   }
+  getErrorRecords(){
+    return this.http.get<any>(this.uri + "getErrorRecords");
+  }
+  getParentRecord(pid){
+    return this.http.get<any>(this.uri + "getParentRecord/" + pid);
+  }
+  getDuplicateRecord(did){
+    return this.http.get<any>(this.uri+ "getDuplicateRecord/" + did);
+  }
+
+
 }

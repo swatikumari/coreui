@@ -43,15 +43,15 @@ export class CompensationComponent implements OnInit {
   //   'DC_USER_NAME'
   // ];
 
-  displayedCol = ["DC_METAINSTANCE_ID",
-         "DC_DEVICE_ID",
-         "DC_USER_NAME",
-         "DC_NH_CASES",
-         "DC_BP_CASES",
-         "DC_TOTAL_CASES"
+  displayedCol = ["COM_METAINSTANCE_ID",
+         "COM_DEVICE_ID",
+         "COM_USER_NAME",
+        //  "DC_NH_CASES",
+        //  "DC_BP_CASES",
+         "COM_OM_TOTAL_CASES"
         ]
   ngOnInit() {
-    this.downloadShapeFile();
+   // this.downloadShapeFile();
     this.spinnerService.show();
     this.record = this.wildService.getCompensation_OM();
     this.record.subscribe(res => {

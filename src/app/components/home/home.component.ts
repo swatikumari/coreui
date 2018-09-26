@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   lng: number = 7.809007;
 
   constructor(private wildService: ConnectorService) {
-    let d: Date = new Date();
+    var d: Date = new Date();
     console.log(d);
         this.toDate = {date: {year: d.getFullYear(),
                              month: d.getMonth() + 1,
@@ -114,19 +114,15 @@ export class HomeComponent implements OnInit {
          ]
        },
        options: {
-         title: {
-           text: 'HWC',
-           display: true
-         },
-         scales: {
-           xAxes: [{
-             display: true
-           }],
-           yAxes: [{
-             display: true,
+         legend : {
+          display: true,
+          labels: {
+            boxWidth: 10,
+          fontSize: 8
+          },
+          position: "right",
 
-           }]
-         }
+        }
        }
      });
 
@@ -246,19 +242,15 @@ dateArr;
            ]
          },
          options: {
-           title: {
-             text: 'HWC',
-             display: true
-           },
-           scales: {
-             xAxes: [{
-               display: true
-             }],
-             yAxes: [{
-               display: true,
+           legend : {
+            display: true,
+            labels: {
+              boxWidth: 10,
+            fontSize: 8
+            },
+            position: "right",
 
-             }]
-           }
+          }
          }
        });
 
@@ -377,19 +369,15 @@ dateArr;
              ]
            },
            options: {
-             title: {
-               text: 'HWC',
-               display: true
-             },
-             scales: {
-               xAxes: [{
-                 display: true
-               }],
-               yAxes: [{
-                 display: true,
+             legend : {
+              display: true,
+              labels: {
+                boxWidth: 10,
+              fontSize: 8
+              },
+              position: "right",
 
-               }]
-             }
+            }
            }
          });
 
@@ -522,19 +510,15 @@ dateArr;
                ]
              },
              options: {
-               title: {
-                 text: 'HWC',
-                 display: true
-               },
-               scales: {
-                 xAxes: [{
-                   display: true
-                 }],
-                 yAxes: [{
-                   display: true,
-                  //  stacked: true
-                 }]
-               }
+               legend : {
+                display: true,
+                labels: {
+                  boxWidth: 10,
+                fontSize: 8
+                },
+                position: "right",
+
+              }
              }
            });
 
@@ -553,14 +537,18 @@ dateArr;
 
    this.record.subscribe(res => {
     this.dataSet = res.data;
-       const date = [];
-     const nh_case = [];
-     const bp_case = [];
+       let date: any = [];
+     let nh_case = [];
+     let bp_case = [];
      this.dataSet.forEach(element => {
        date.push(element.CASE_DATE);
        nh_case.push(element.NH_CASES);
        bp_case.push(element.BP_CASE);
      });
+     nh_case = ['10'];
+     bp_case = ['25'];
+     let d = new Date();
+     date = [('0' + (d.getDate()-1)).slice(-2)+"-"+('0' + (d.getMonth() + 1)).slice(-2)+"-"+d.getFullYear()];
   this.barChart = new Chart('ctx', {
     type: 'bar',
     data:{
@@ -586,18 +574,16 @@ dateArr;
     },
 
     options: {
-      title: {
-        text: 'DC Count(Prev)',
-        display: true
+      legend : {
+        display: true,
+        labels: {
+          boxWidth: 10,
+          fontSize: 8
+        },
+        position: "right",
+
       },
-      scales: {
-        xAxes: [{
-          display: true
-        }],
-        yAxes: [{
-          display: true
-        }]
-      }
+      scales: { yAxes: [{ ticks: { beginAtZero:true } }] }
     }
   });
 
@@ -629,7 +615,7 @@ dateArr;
             label: "Nagarahole",
             data: [120, 50, 70, 90, 110],
             backgroundColor: "yellow",
-            borderColor: "green",
+            borderColor: "blue",
             borderWidth:1
           }
         ]
@@ -639,8 +625,10 @@ dateArr;
           display: true,
           labels: {
             boxWidth: 10
+ ,           fontSize: 8
           },
-          position: "right"
+          position: "right",
+
         }
       }
     }
@@ -660,12 +648,12 @@ getTable1(){
   this.record = this.wildService.getBpNhYearly();
   this.record.subscribe(res => {
 
-     this.dataSource = res.data as string[];
-    for (let key in res.data[0]){
+     this.dataSource = res.data ;
+    for (let key in this.dataSource[0]){
       this.displayedCol.push(key);
 
     }
-
+this.displayedCol;
   });
 
 }
