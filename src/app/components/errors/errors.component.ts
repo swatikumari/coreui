@@ -51,7 +51,8 @@ export class ErrorsComponent implements OnInit {
 
   openUpdate(data): void {
     let dialogRef = this.dialog.open(ErrorDetailsComponent, {
-      width: '400px',
+      width: '800px',
+       height: '450px',
       data: data
     });
 
@@ -93,10 +94,13 @@ export class ErrorsComponent implements OnInit {
 })
 export class ErrorDetailsComponent implements OnInit{
 
-  record: any;
+  record1: any;
+  record2: any;
   createForm: FormGroup;
+  createForm2: FormGroup;
   private formSubmitAttempt: boolean;
   dataSource: any;
+  dataSource2: any;
   public event: EventEmitter<any> = new EventEmitter();
 
   constructor(
@@ -110,9 +114,9 @@ export class ErrorDetailsComponent implements OnInit{
 
   }
 
-  Form() {
+  form1() {
     this.createForm = this.fb.group({
-      HWC_METAINSTANCE_ID: [''],
+      HWC_METAINSTANCE_ID: ['', Validators.required],
       HWC_METAMODEL_VERSION: ['', Validators.required],
       HWC_METAUI_VERSION: ['', Validators.required],
       HWC_METASUBMISSION_DATE: ['', Validators.required],
@@ -155,19 +159,76 @@ export class ErrorDetailsComponent implements OnInit{
     })
   }
 
+  form2() {
+    this.createForm2 = this.fb.group({
+      HWC_METAINSTANCE_ID: ['', Validators.required],
+      HWC_METAMODEL_VERSION: ['', Validators.required],
+      HWC_METAUI_VERSION: ['', Validators.required],
+      HWC_METASUBMISSION_DATE: ['', Validators.required],
+      HWC_WSID: ['',Validators.required],
+      HWC_FIRST_NAME: ['', Validators.required],
+      HWC_FULL_NAME:['', Validators.required],
+      HWC_PARK_NAME:['', Validators.required],
+      HWC_TALUK_NAME:['', Validators.required],
+      HWC_VILLAGE_NAME:['', Validators.required],
+      HWC_OLDPHONE_NUMBER:['', Validators.required],
+      HWC_NEWPHONE_NUMBER:['', Validators.required],
+      HWC_SURVEY_NUMBER: ['', Validators.required],
+      HWC_RANGE:['', Validators.required],
+      HWC_LATITUDE:['', Validators.required],
+      HWC_LONGITUDE:['', Validators.required],
+      HWC_ALTITUDE:['', Validators.required],
+      HWC_ACCURACY:['', Validators.required],
+      HWC_CASE_DATE:['', Validators.required],
+      HWC_CASE_CATEGORY:['', Validators.required],
+      HWC_ANIMAL:['', Validators.required],
+      HWC_HI_NAME:['', Validators.required],
+      HWC_HI_VILLAGE:['', Validators.required],
+      HWC_HI_AREA:['', Validators.required],
+      HWC_HI_DETAILS:['', Validators.required],
+      HWC_HD_NAME:['', Validators.required],
+      HWC_HD_VILLAGE:['', Validators.required],
+      HWC_HD_DETAILS:['', Validators.required],
+      HWC_COMMENT:['', Validators.required],
+      HWC_FD_SUB_DATE:['', Validators.required],
+      HWC_FD_SUB_RANGE:['', Validators.required],
+      HWC_FD_NUM_FORMS:['', Validators.required],
+      HWC_FD_COMMENT:['', Validators.required],
+      HWC_START:['', Validators.required],
+      HWC_END:['', Validators.required],
+      HWC_DEVICE_ID:['', Validators.required],
+      HWC_SIMCARD_ID:['', Validators.required],
+      HWC_FA_PHONE_NUMBER:['', Validators.required],
+      HWC_USER_NAME:['', Validators.required],
+      HWC_CASE_TYPE:['', Validators.required]
+    })
+  }
 
   ngOnInit(){
-    this.record = this.wildService.getParentRecord(this.data.HWC_ORG_METAID);
-    this.record.subscribe(res => {
-      this.dataSource = res.response[0];
+
+    this.form1();
+    this.form2();
+    //this.dataSource;
+    this.record1 = this.wildService.getParentRecord(this.data.HWC_ORG_METAID);
+    this.record1.subscribe(res => {
+      this.dataSource=res.response[0];
+    //  this.dataSource;
+    console.log(this.dataSource);
+    this.updateForm1();
     });
+    this.record2 = this.wildService.getDuplicateRecord(this.data.HWC_DUP_METAID);
+    this.record2.subscribe(res => {
+      this.dataSource2=res.response;
+    //  this.dataSource;
+    console.log(this.dataSource2);
+    this.updateForm2();
+    });
+  }
+
+  updateForm1(){
     this.createForm.get('HWC_METAINSTANCE_ID').setValue(this.dataSource.HWC_METAINSTANCE_ID);
     this.createForm.get('HWC_METAMODEL_VERSION').setValue(this.dataSource.HWC_METAMODEL_VERSION);
     this.createForm.get('HWC_METAUI_VERSION').setValue(this.dataSource.HWC_METAUI_VERSION);
-    // this.createForm.get('phonenumber').setValue(this.dataSource.Phone_number);
-    // this.createForm.get('email').setValue(this.dataSource.Email_id);
-    // this.createForm.get('password').setValue(this.dataSource.User_pwd);
-
      this.createForm.get('HWC_METASUBMISSION_DATE').setValue(this.dataSource.HWC_METASUBMISSION_DATE);
      this.createForm.get('HWC_WSID').setValue(this.dataSource.HWC_WSID);
      this.createForm.get('HWC_FIRST_NAME').setValue(this.dataSource.HWC_FIRST_NAME);
@@ -184,34 +245,70 @@ export class ErrorDetailsComponent implements OnInit{
      this.createForm.get('HWC_ALTITUDE').setValue(this.dataSource.HWC_ALTITUDE);
      this.createForm.get('HWC_ACCURACY').setValue(this.dataSource.HWC_ACCURACY);
      this.createForm.get('HWC_CASE_DATE').setValue(this.dataSource.HWC_CASE_DATE);
+     this.createForm.get('HWC_CASE_CATEGORY').setValue(this.dataSource.HWC_CASE_CATEGORY);
+     this.createForm.get('HWC_ANIMAL').setValue(this.dataSource.HWC_ANIMAL);
+     this.createForm.get('HWC_HI_NAME').setValue(this.dataSource.HWC_HI_NAME);
+     this.createForm.get('HWC_HI_VILLAGE').setValue(this.dataSource.HWC_HI_VILLAGE);
+     this.createForm.get('HWC_HI_AREA').setValue(this.dataSource.HWC_HI_AREA);
+     this.createForm.get('HWC_HI_DETAILS').setValue(this.dataSource.HWC_HI_DETAILS);
+     this.createForm.get('HWC_HD_NAME').setValue(this.dataSource.HWC_HD_NAME);
+     this.createForm.get('HWC_HD_VILLAGE').setValue(this.dataSource.HWC_HD_VILLAGE);
+     this.createForm.get('HWC_HD_DETAILS').setValue(this.dataSource.HWC_HD_DETAILS);
+     this.createForm.get('HWC_COMMENT').setValue(this.dataSource.HWC_COMMENT);
+     this.createForm.get('HWC_FD_SUB_DATE').setValue(this.dataSource.HWC_FD_SUB_DATE);
+     this.createForm.get('HWC_FD_NUM_FORMS').setValue(this.dataSource.HWC_FD_NUM_FORMS);
+     this.createForm.get('HWC_FD_COMMENT').setValue(this.dataSource.HWC_FD_COMMENT);
+     this.createForm.get('HWC_START').setValue(this.dataSource.HWC_START);
+     this.createForm.get('HWC_END').setValue(this.dataSource.HWC_END);
+     this.createForm.get('HWC_DEVICE_ID').setValue(this.dataSource.HWC_DEVICE_ID);
+     this.createForm.get('HWC_SIMCARD_ID').setValue(this.dataSource.HWC_SIMCARD_ID);
+     this.createForm.get('HWC_FA_PHONE_NUMBER').setValue(this.dataSource.HWC_FA_PHONE_NUMBER);
+     this.createForm.get('HWC_USER_NAME').setValue(this.dataSource.HWC_USER_NAME);
+     this.createForm.get('HWC_CASE_TYPE').setValue(this.dataSource.HWC_CASE_TYPE);
 
+  }
 
+  updateForm2(){
+    this.createForm2.get('HWC_METAINSTANCE_ID').setValue(this.dataSource2.HWC_METAINSTANCE_ID);
+    this.createForm2.get('HWC_METAMODEL_VERSION').setValue(this.dataSource2.HWC_METAMODEL_VERSION);
+    this.createForm2.get('HWC_METAUI_VERSION').setValue(this.dataSource2.HWC_METAUI_VERSION);
+     this.createForm2.get('HWC_METASUBMISSION_DATE').setValue(this.dataSource2.HWC_METASUBMISSION_DATE);
+     this.createForm2.get('HWC_WSID').setValue(this.dataSource2.HWC_WSID);
+     this.createForm2.get('HWC_FIRST_NAME').setValue(this.dataSource2.HWC_FIRST_NAME);
+     this.createForm2.get('HWC_FULL_NAME').setValue(this.dataSource2.HWC_FULL_NAME);
+     this.createForm2.get('HWC_PARK_NAME').setValue(this.dataSource2.HWC_PARK_NAME);
+     this.createForm2.get('HWC_TALUK_NAME').setValue(this.dataSource2.HWC_TALUK_NAME);
+     this.createForm2.get('HWC_VILLAGE_NAME').setValue(this.dataSource2.HWC_VILLAGE_NAME);
+     this.createForm2.get('HWC_OLDPHONE_NUMBER').setValue(this.dataSource2.HWC_OLDPHONE_NUMBER);
+     this.createForm2.get('HWC_NEWPHONE_NUMBER').setValue(this.dataSource2.HWC_NEWPHONE_NUMBER);
+     this.createForm2.get('HWC_SURVEY_NUMBER').setValue(this.dataSource2.HWC_SURVEY_NUMBER);
+     this.createForm2.get('HWC_RANGE').setValue(this.dataSource2.HWC_RANGE);
+     this.createForm2.get('HWC_LATITUDE').setValue(this.dataSource2.HWC_LATITUDE);
+     this.createForm2.get('HWC_LONGITUDE').setValue(this.dataSource2.HWC_LONGITUDE);
+     this.createForm2.get('HWC_ALTITUDE').setValue(this.dataSource2.HWC_ALTITUDE);
+     this.createForm2.get('HWC_ACCURACY').setValue(this.dataSource2.HWC_ACCURACY);
+     this.createForm2.get('HWC_CASE_DATE').setValue(this.dataSource2.HWC_CASE_DATE);
+     this.createForm2.get('HWC_CASE_CATEGORY').setValue(this.dataSource2.HWC_CASE_CATEGORY);
+     this.createForm2.get('HWC_ANIMAL').setValue(this.dataSource2.HWC_ANIMAL);
+     this.createForm2.get('HWC_HI_NAME').setValue(this.dataSource2.HWC_HI_NAME);
+     this.createForm2.get('HWC_HI_VILLAGE').setValue(this.dataSource2.HWC_HI_VILLAGE);
+     this.createForm2.get('HWC_HI_AREA').setValue(this.dataSource2.HWC_HI_AREA);
+     this.createForm2.get('HWC_HI_DETAILS').setValue(this.dataSource2.HWC_HI_DETAILS);
+     this.createForm2.get('HWC_HD_NAME').setValue(this.dataSource2.HWC_HD_NAME);
+     this.createForm2.get('HWC_HD_VILLAGE').setValue(this.dataSource2.HWC_HD_VILLAGE);
+     this.createForm2.get('HWC_HD_DETAILS').setValue(this.dataSource2.HWC_HD_DETAILS);
+     this.createForm2.get('HWC_COMMENT').setValue(this.dataSource2.HWC_COMMENT);
+     this.createForm2.get('HWC_FD_SUB_DATE').setValue(this.dataSource2.HWC_FD_SUB_DATE);
+     this.createForm2.get('HWC_FD_NUM_FORMS').setValue(this.dataSource2.HWC_FD_NUM_FORMS);
+     this.createForm2.get('HWC_FD_COMMENT').setValue(this.dataSource2.HWC_FD_COMMENT);
+     this.createForm2.get('HWC_START').setValue(this.dataSource2.HWC_START);
+     this.createForm2.get('HWC_END').setValue(this.dataSource2.HWC_END);
+     this.createForm2.get('HWC_DEVICE_ID').setValue(this.dataSource2.HWC_DEVICE_ID);
+     this.createForm2.get('HWC_SIMCARD_ID').setValue(this.dataSource2.HWC_SIMCARD_ID);
+     this.createForm2.get('HWC_FA_PHONE_NUMBER').setValue(this.dataSource2.HWC_FA_PHONE_NUMBER);
+     this.createForm2.get('HWC_USER_NAME').setValue(this.dataSource2.HWC_USER_NAME);
+     this.createForm2.get('HWC_CASE_TYPE').setValue(this.dataSource2.HWC_CASE_TYPE);
 
-
-
-      // HWC_ACCURACY:['', Validators.required],
-      // HWC_CASE_DATE:['', Validators.required],
-      // HWC_CASE_CATEGORY:['', Validators.required],
-      // HWC_ANIMAL:['', Validators.required],
-      // HWC_HI_NAME:['', Validators.required],
-      // HWC_HI_VILLAGE:['', Validators.required],
-      // HWC_HI_AREA:['', Validators.required],
-      // HWC_HI_DETAILS:['', Validators.required],
-      // HWC_HD_NAME:['', Validators.required],
-      // HWC_HD_VILLAGE:['', Validators.required],
-      // HWC_HD_DETAILS:['', Validators.required],
-      // HWC_COMMENT:['', Validators.required],
-      // HWC_FD_SUB_DATE:['', Validators.required],
-      // HWC_FD_SUB_RANGE:['', Validators.required],
-      // HWC_FD_NUM_FORMS:['', Validators.required],
-      // HWC_FD_COMMENT:['', Validators.required],
-      // HWC_START:['', Validators.required],
-      // HWC_END:['', Validators.required],
-      // HWC_DEVICE_ID:['', Validators.required],
-      // HWC_SIMCARD_ID:['', Validators.required],
-      // HWC_FA_PHONE_NUMBER:['', Validators.required],
-      // HWC_USER_NAME:['', Validators.required],
-      // HWC_CASE_TYPE:['', Validators.required]
   }
 
   isFieldInvalid(field: string) {

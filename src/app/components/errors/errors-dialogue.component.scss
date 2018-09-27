@@ -5,4 +5,18 @@ mat-form-field {
 mat-header-cell{
   text-align: center;
 }
+// .example-container{
+//   height: 400px;
+//   width: 800px;
+// }
+// mat-grid-list{
+//   flex-grow: 1;
+//   border: 3px solid green;
+//   overflow: auto;
+// }
 
+h4.header{
+  position: sticky;
+  z-index: 1;
+  width: 350px;
+}

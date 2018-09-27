@@ -460,7 +460,7 @@ dateArr;
           });
         }
         console.log(crpd_cases);
-        let crpd_sum = crpd_cases.reduce((a, b) => a + b, 0);
+        let crpd_sum = crpd_cases.reduce(function(a, b) {return a + b;}, 0);
         console.log(crpd_sum);
 
 
