@@ -352,7 +352,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="HWC_OLDPHONE_NUMBER" type="text" #HWC_OLDPHONE_NUMBER formControlName="HWC_OLDPHONE_NUMBER"
+        <input matInput placeholder="HWC_OLDPHONE_NUMBER" type="number" value="null" #HWC_OLDPHONE_NUMBER formControlName="HWC_OLDPHONE_NUMBER"
           required>
         <mat-error *ngIf="isFieldInvalid('HWC_OLDPHONE_NUMBER')">
           Please fill this field
@@ -489,7 +489,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="HWC_FD_NUM_FORMS" type="text" #HWC_FD_NUM_FORMS formControlName="HWC_FD_NUM_FORMS"
+        <input matInput placeholder="HWC_FD_NUM_FORMS" type="number" value="null" #HWC_FD_NUM_FORMS formControlName="HWC_FD_NUM_FORMS"
           required>
         <mat-error *ngIf="isFieldInvalid('HWC_FD_NUM_FORMS')">
           Please fill this field

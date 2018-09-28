@@ -5,20 +5,18 @@ import { ErrorsComponent, ErrorDetailsComponent } from './errors.component';
 
 const routes: Routes = [
   {
-    path: 'errors',
+    path: '',
     component: ErrorsComponent,
     data: {
-      title: 'Errors'
+      title: 'Error'
     }
   },
   {
-    path: 'verify',
-    component: ErrorDetailsComponent
-  },
-  {
     path: '',
-    redirectTo: 'errors',
-    pathMatch: 'full'
+    component: ErrorDetailsComponent,
+    data: {
+      title: 'ErrorDetail'
+    }
   }
 ];
 
