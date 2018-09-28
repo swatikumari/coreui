@@ -129,6 +129,12 @@ export class ErrorDetailsComponent implements OnInit{
 
   updateHWC( HWC_METAINSTANCE_ID,HWC_METAMODEL_VERSION,HWC_METAUI_VERSION,HWC_METASUBMISSION_DATE,HWC_WSID,HWC_FIRST_NAME,HWC_FULL_NAME,HWC_PARK_NAME,HWC_TALUK_NAME,HWC_VILLAGE_NAME,HWC_OLDPHONE_NUMBER,HWC_NEWPHONE_NUMBER,HWC_SURVEY_NUMBER,HWC_RANGE,HWC_LATITUDE,HWC_LONGITUDE,HWC_ALTITUDE,HWC_ACCURACY,HWC_CASE_DATE,HWC_CASE_CATEGORY,HWC_ANIMAL,HWC_HI_NAME,HWC_HI_VILLAGE,HWC_HI_AREA,HWC_HI_DETAILS,HWC_HD_NAME,HWC_HD_VILLAGE,HWC_HD_DETAILS,HWC_COMMENT,HWC_FD_SUB_DATE,HWC_FD_SUB_RANGE,HWC_FD_NUM_FORMS,HWC_FD_COMMENT,HWC_START,HWC_END,HWC_DEVICE_ID,HWC_SIMCARD_ID,HWC_FA_PHONE_NUMBER,HWC_USER_NAME,HWC_CASE_TYPE){
     this.dialogRef.close();
+    if(HWC_OLDPHONE_NUMBER=== ""){
+      HWC_OLDPHONE_NUMBER = null;
+    }
+    if(HWC_FA_PHONE_NUMBER === ""){
+      HWC_FA_PHONE_NUMBER = null;
+    }
     this.wildService.updateParentRecord(HWC_METAINSTANCE_ID,HWC_METAMODEL_VERSION,HWC_METAUI_VERSION,HWC_METASUBMISSION_DATE,HWC_WSID,HWC_FIRST_NAME,HWC_FULL_NAME,HWC_PARK_NAME,HWC_TALUK_NAME,HWC_VILLAGE_NAME,HWC_OLDPHONE_NUMBER,HWC_NEWPHONE_NUMBER,HWC_SURVEY_NUMBER,HWC_RANGE,HWC_LATITUDE,HWC_LONGITUDE,HWC_ALTITUDE,HWC_ACCURACY,HWC_CASE_DATE,HWC_CASE_CATEGORY,HWC_ANIMAL,HWC_HI_NAME,HWC_HI_VILLAGE,HWC_HI_AREA,HWC_HI_DETAILS,HWC_HD_NAME,HWC_HD_VILLAGE,HWC_HD_DETAILS,HWC_COMMENT,HWC_FD_SUB_DATE,HWC_FD_SUB_RANGE,HWC_FD_NUM_FORMS,HWC_FD_COMMENT,HWC_START,HWC_END,HWC_DEVICE_ID,HWC_SIMCARD_ID,HWC_FA_PHONE_NUMBER,HWC_USER_NAME,HWC_CASE_TYPE)
     .subscribe((res) => {
       if(res.status === 200){
@@ -139,6 +145,11 @@ export class ErrorDetailsComponent implements OnInit{
         alert("Something Went Wrong Please Retry!");
       }
     });
+  }
+
+  errorRecord(did){
+    did = "uuid:" + did;
+    this.wildService.insertErrorRecord(did).subscribe(() => console.log("Inserted Error Record."));
   }
 
   form1() {
@@ -339,10 +350,10 @@ export class ErrorDetailsComponent implements OnInit{
   }
 
   isFieldInvalid(field: string) {
-    return (
-      (!this.createForm.get(field).valid && this.createForm.get(field).touched) ||
-      (this.createForm.get(field).untouched && this.formSubmitAttempt)
-    );
+    // return (
+    //   (!this.createForm.get(field).valid && this.createForm.get(field).touched) ||
+    //   (this.createForm.get(field).untouched && this.formSubmitAttempt)
+    // );
   }
 
   onNoClick(): void {

@@ -79,7 +79,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="HWC_OLDPHONE_NUMBER" type="number" value="null" #OLDPHONE_NUMBER formControlName="HWC_OLDPHONE_NUMBER"
+        <input matInput placeholder="HWC_OLDPHONE_NUMBER" type="number"  #OLDPHONE_NUMBER formControlName="HWC_OLDPHONE_NUMBER"
           required>
         <mat-error *ngIf="isFieldInvalid('HWC_OLDPHONE_NUMBER')">
           Please fill this field
@@ -255,7 +255,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="HWC_FA_PHONE_NUMBER" type="text" #FA_PHONE_NUMBER formControlName="HWC_FA_PHONE_NUMBER"
+        <input matInput placeholder="HWC_FA_PHONE_NUMBER" type="number" #FA_PHONE_NUMBER formControlName="HWC_FA_PHONE_NUMBER"
           required>
         <mat-error *ngIf="isFieldInvalid('HWC_FA_PHONE_NUMBER')">
           Please fill this field
@@ -352,7 +352,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="HWC_OLDPHONE_NUMBER" type="number" value="null" #HWC_OLDPHONE_NUMBER formControlName="HWC_OLDPHONE_NUMBER"
+        <input matInput placeholder="HWC_OLDPHONE_NUMBER" type="number"  #HWC_OLDPHONE_NUMBER formControlName="HWC_OLDPHONE_NUMBER"
           required>
         <mat-error *ngIf="isFieldInvalid('HWC_OLDPHONE_NUMBER')">
           Please fill this field
@@ -489,7 +489,7 @@
         </mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="HWC_FD_NUM_FORMS" type="number" value="null" #HWC_FD_NUM_FORMS formControlName="HWC_FD_NUM_FORMS"
+        <input matInput placeholder="HWC_FD_NUM_FORMS" type="number"  #HWC_FD_NUM_FORMS formControlName="HWC_FD_NUM_FORMS"
           required>
         <mat-error *ngIf="isFieldInvalid('HWC_FD_NUM_FORMS')">
           Please fill this field
@@ -547,7 +547,7 @@
         </mat-error>
       </mat-form-field>
 
-      <button mat-raised-button  color="primary">Insert</button>
+      <button mat-raised-button (click)="errorRecord(HWC_METAINSTANCE_ID.value)" color="primary">Insert</button>
       <button mat-raised-button (click)="onNoClick()" class="pull-right" color="accent">Close</button>
 
     </form>
