@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?
+><kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+<name>nanjangud</name>
+<ExtendedData>
+<Data name="Name"><value>nanjangud</value></Data>
+<Data name="Park"><value>bandipur</value></Data>
+</ExtendedData>
+<Point>
+<coordinates>77.60165385,12.96175566</coordinates>
+</Point></Placemark>
+<Placemark><name>chamrajnagar</name>
+<ExtendedData>
+<Data name="Name"><value>chamrajnagar</value></Data>
+<Data name="Park"><value>bandipur</value></Data>
+</ExtendedData>
+<Point>
+<coordinates>77.60172096,12.96187389</coordinates>
+</Point></Placemark>
+<Placemark>
+<name>hunsur</name>
+<ExtendedData>
+<Data name="Name"><value>hunsur</value></Data>
+<Data name="Park"><value>nagarahole</value></Data>
+</ExtendedData>
+<Point>
+<coordinates>77.60197611,12.96222439</coordinates>
+</Point></Placemark>
+<Placemark><name>piriyapatna</name>
+<ExtendedData>
+<Data name="Name"><value>piriyapatna</value></Data>
+<Data name="Park"><value>nagarahole</value></Data>
+</ExtendedData>
+<Point>
+<coordinates>77.61628452,12.97466394</coordinates>
+</Point></Placemark>
+<Placemark>
+<name>chamrajnagar</name>
+<ExtendedData><Data name="Name"><value>chamrajnagar</value></Data><Data name="Park"><value>bandipur</value></Data></ExtendedData><Point><coordinates>77.6018864,12.96173454</coordinates></Point></Placemark><Placemark><name>hdkote</name><ExtendedData><Data name="Name"><value>hdkote</value></Data><Data name="Park"><value>bandipur</value></Data></ExtendedData><Point><coordinates>77.60167076,12.96179615</coordinates></Point></Placemark><Placemark><name>piriyapatna</name><ExtendedData><Data name="Name"><value>piriyapatna</value></Data><Data name="Park"><value>nagarahole</value></Data></ExtendedData><Point><coordinates>77.60174811,12.96188066</coordinates></Point></Placemark><Placemark><name>nanjangud</name><ExtendedData><Data name="Name"><value>nanjangud</value></Data><Data name="Park"><value>bandipur</value></Data></ExtendedData><Point><coordinates>77.60179712,12.96179146</coordinates></Point></Placemark><Placemark><name>hunsur</name><ExtendedData><Data name="Name"><value>hunsur</value></Data><Data name="Park"><value>nagarahole</value></Data></ExtendedData><Point><coordinates>77.6017592,12.96176213</coordinates></Point></Placemark></Document></kml>
